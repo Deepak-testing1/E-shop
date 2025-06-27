@@ -1,0 +1,682 @@
+[{
+  "_id": "685a22e19ccc59991c907e8f",
+  "name": "Sony Xperia 1 V",
+  "price": 13999,
+  "image": "https://fdn2.gsmarena.com/vv/bigpic/sony-xperia-1-v.jpg",
+  "description": "6.5-inch 4K OLED, Snapdragon 8 Gen 2, 12GB RAM, 256GB storage, 5000mAh battery. Origin: Japan.",
+  "category": "mobile"
+},
+{
+  "_id": "685a22e19ccc59991c907e91",
+  "name": "iPhone 15 Pro",
+  "price": 69999,
+  "image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15-pro.jpg",
+  "description": "6.1-inch Super Retina XDR, A17 Pro chip, 8GB RAM, 1TB storage, 3274mAh battery. Origin: USA.",
+  "category": "mobile"
+},
+{
+  "_id": "685a22e19ccc59991c907e92",
+  "name": "Xiaomi 14 Pro",
+  "price": 10999,
+  "image": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-14-pro.jpg",
+  "description": "6.73-inch LTPO AMOLED, Snapdragon 8 Gen 3, 16GB RAM, 1TB storage, 4880mAh battery. Origin: China.",
+  "category": "mobile"
+},
+{
+  "_id": "685a22e19ccc59991c907e93",
+  "name": "OnePlus 12",
+  "price": 19999,
+  "image": "https://fdn2.gsmarena.com/vv/bigpic/oneplus-12.jpg",
+  "description": "6.82-inch LTPO AMOLED, Snapdragon 8 Gen 3, 16GB RAM, 512GB storage, 5400mAh battery. Origin: China.",
+  "category": "mobile"
+},
+{
+  "_id": "685a22e19ccc59991c907e94",
+  "name": "Google Pixel 8",
+  "price": 6999,
+  "image": "https://fdn2.gsmarena.com/vv/bigpic/google-pixel-8.jpg",
+  "description": "6.2-inch OLED, Google Tensor G3, 8GB RAM, 256GB storage, 4575mAh battery. Origin: USA.",
+  "category": "mobile"
+},
+{
+  "_id": "685a22e19ccc59991c907e96",
+  "name": "Asus ROG Phone 8",
+  "price": 11999,
+  "image": "https://fdn2.gsmarena.com/vv/bigpic/asus-rog-phone-8.jpg",
+  "description": "6.78-inch AMOLED, Snapdragon 8 Gen 3, 24GB RAM, 1TB storage, 5500mAh battery. Origin: Taiwan.",
+  "category": "mobile"
+},
+{
+  "_id": "685a22e19ccc59991c907e97",
+  "name": "Oppo Find X7 Ultra",
+  "price": 12999,
+  "image": "https://fdn2.gsmarena.com/vv/bigpic/oppo-find-x7-ultra.jpg",
+  "description": "6.82-inch LTPO AMOLED, Snapdragon 8 Gen 3, 16GB RAM, 1TB storage, 5000mAh battery. Origin: China.",
+  "category": "mobile"
+},
+{
+  "_id": "685a22e19ccc59991c907e98",
+  "name": "Vivo X100 Pro",
+  "price": 10999,
+  "image": "https://fdn2.gsmarena.com/vv/bigpic/vivo-x100-pro.jpg",
+  "description": "6.78-inch AMOLED, MediaTek Dimensity 9300, 16GB RAM, 1TB storage, 5400mAh battery. Origin: China.",
+  "category": "mobile"
+},
+{
+  "_id": "685a22e19ccc59991c907e99",
+  "name": "Honor Magic6 Pro",
+  "price": 11999,
+  "image": "https://fdn2.gsmarena.com/vv/bigpic/honor-magic6-pro.jpg",
+  "description": "6.8-inch LTPO OLED, Snapdragon 8 Gen 3, 16GB RAM, 1TB storage, 5600mAh battery. Origin: China.",
+  "category": "mobile"
+},
+{
+  "_id": "685a22e19ccc59991c907e9a",
+  "name": "Realme GT5 Pro",
+  "price": 7999,
+  "image": "https://fdn2.gsmarena.com/vv/bigpic/realme-gt5-pro.jpg",
+  "description": "6.78-inch AMOLED, Snapdragon 8 Gen 3, 16GB RAM, 1TB storage, 5400mAh battery. Origin: China.",
+  "category": "mobile"
+},
+{
+  "_id": "685a22e19ccc59991c907ee5",
+  "name": "Sony WH-1000XM5",
+  "price": 28990,
+  "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSJfFiotTWJjo_B4ZKT2lJ4vh4B--aOgL9OfEP25l4IuqpxBLSWfdcKZWFdZ9nbAMRQS4Qs854I3_TqtB1G-koHeH6KdkZ05cXAO-pbmlMaTbmGEtDfBBXFp-Y",
+  "description": "Industry-leading noise cancellation, 30-hour battery, 40mm drivers, touch controls. Origin: Japan.",
+  "category": "Headphones"
+},
+{
+  "_id": "685a22e19ccc59991c907ee6",
+  "name": "Bose QuietComfort Ultra",
+  "price": 29990,
+  "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTvSNDmkSBhWRszdXky4lU0PXJ4Lb9TeqcmK7U-XQioN1EVk9MOYnKjnFUTq-KBMfhJNQCeES9BQ78mTOFuV0FU-jzVeU-67A5oAj4O-JpdwRSJ1eDbNUnv",
+  "description": "Immersive Audio with spatial sound, 24-hour battery, premium mic system. Origin: USA.",
+  "category": "Headphones"
+},
+{
+  "_id": "685a22e19ccc59991c907ee7",
+  "name": "Apple AirPods Max",
+  "price": 59990,
+  "image": "https://media.croma.com/image/upload/v1607605440/Croma%20Assets/Entertainment/Headphones%20and%20Earphones/Images/231421_n3yvmu.png",
+  "description": "Active Noise Cancellation, spatial audio, 20-hour battery, aluminum cups. Origin: USA.",
+  "category": "Headphones"
+},
+{
+  "_id": "685a22e19ccc59991c907ee8",
+  "name": "Sennheiser Momentum 4",
+  "price": 24990,
+  "image": "https://m.media-amazon.com/images/I/716++4xC2wL.jpg",
+  "description": "60-hour battery life, adaptive noise cancellation, 42mm drivers. Origin: Germany.",
+  "category": "Headphones"
+},
+{
+  "_id": "685a22e19ccc59991c907ee9",
+  "name": "JBL Tour One M2",
+  "price": 19990,
+  "image": "https://m.media-amazon.com/images/I/61d2SD59OTL.jpg",
+  "description": "Smart Adaptive ANC, 50-hour battery, 40mm drivers. Origin: USA.",
+  "category": "Headphones"
+},
+{
+  "_id": "685a22e19ccc59991c907eea",
+  "name": "Boat Nirvana 751 ANC",
+  "price": 7999,
+  "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcS3Xz2fE1hIQ9Ucg7B2PHR4nevqyItAum_EYBd3l7hms6UkXPUDMV0IwfHe6kXow1sv0sIDukksjvEzJM1m1k7tIFsiWIGkkUn49COGbF0klevRZ52wPZ8_2w",
+  "description": "Hybrid ANC, 65-hour battery, ASAP charge, environmental noise cancellation. Origin: India.",
+  "category": "Headphones"
+},
+{
+  "_id": "685a22e19ccc59991c907eeb",
+  "name": "OnePlus Nord Buds 2",
+  "price": 2999,
+  "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQskf5dPYx-6lEGHY1Zc0VRyQmwsrdsZdemtAyAEu_BiHc_4-rLmMxDkmUGAyaXyH8eFxLR3PqXe-Ut1jXnNjK0dYdeBwyOkf5VMcBPMyWp-Lib5QoO4-9I",
+  "description": "12.4mm drivers, 36hr playback, Dolby Atmos, IP55 rating. Origin: China.",
+  "category": "Headphones"
+},
+{
+  "_id": "685a22e19ccc59991c907eec",
+  "name": "Noise ColorFit Icon 2",
+  "price": 1999,
+  "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcR95wOZl6h0CI-51XOdjpFx6Avhhc-0xqjENgOWm_aynuSwSSphAnuctYZryTrwOmS3T2pFfPudQgRT9HGcMBejggsKbJc7D5Pz5WKWEyJbFuWlHupvq0S4",
+  "description": "40mm drivers, 50hr playback, Bluetooth 5.3, lightweight design. Origin: India.",
+  "category": "Headphones"
+},
+{
+  "_id": "685a22e19ccc59991c907edd",
+  "name": "Apple MacBook Air M1",
+  "price": 79990,
+  "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTF5lgmxR1a6b-qtP9f-eMPbK0YMBfnqqwDfqozhI06vF-Zc5YxdPlNOgvUIrpqAwoMA0Y_Die_937n8Am5WWKI5CCUOspHUUYCROtXSsbW",
+  "description": "13.3-inch Retina display, Apple M1 chip, 8GB RAM, 256GB SSD, 18hr battery. Origin: USA.",
+  "category": "Laptops"
+},
+{
+  "_id": "685a22e19ccc59991c907ede",
+  "name": "Dell XPS 13",
+  "price": 124990,
+  "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSBbiCv6MNE_s7Av2irfOFIsQ__giRWEe2HQbyxayVIFIpWnfoYo7Zwi691PmIqu9jNmz4FmvAQcG4p0XYA7fowl97zwJ-Ivy431sp8DioCn7RQIatX0FqN",
+  "description": "13.4-inch FHD+ InfinityEdge display, Intel Core i7, 16GB RAM, 512GB SSD. Origin: USA.",
+  "category": "Laptops"
+},
+{
+  "_id": "685a22e19ccc59991c907edf",
+  "name": "HP Spectre x360",
+  "price": 109990,
+  "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTQQZ_pNd_-JIdpNGuR-ZzDLb4reFQ7DqHRiqrP6qZ5oxOTYE8780VFSZxdD2SqhdC3MrDlFibSfkX6fXxGau-eDb48uqR2uM0G0Tw6SnpVAhSPaF1Iy_SyCw",
+  "description": "14-inch 3K2K OLED touchscreen, Intel Core i7, 16GB RAM, 1TB SSD, 2-in-1 convertible. Origin: USA.",
+  "category": "Laptops"
+},
+{
+  "_id": "685a22e19ccc59991c907ee0",
+  "name": "Lenovo ThinkPad X1 Carbon",
+  "price": 139990,
+  "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTSijsswMgsMy0jRIwq1U5vOEBQULbRH9Jt2Z0aL3Exc1FFhi0Gc7KzJrqU4Yr7Za9dDQ9-BHgvqJX29DEonY2aiPI6g3rkAvkGiAeb6_iRfvFYDyJ94gnV",
+  "description": "14-inch WUXGA IPS display, Intel Core i7, 16GB RAM, 512GB SSD, MIL-STD tested. Origin: China.",
+  "category": "Laptops"
+},
+{
+  "_id": "685a22e19ccc59991c907ee1",
+  "name": "Asus ROG Zephyrus G14",
+  "price": 129990,
+  "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTsu4hF3_n9Yw2Tu1sJOs2emUuh8WL-rzWPb07ieK7_XjxT_ifur8jmKtb4w9nGI4QmJlB2fJNkPzxvyrMayUyIkWSHbkTYbeq_dUR6ORZRi4PqMAM33a69yg",
+  "description": "14-inch QHD 120Hz display, AMD Ryzen 9, 16GB RAM, 1TB SSD, RTX 3060 GPU. Origin: Taiwan.",
+  "category": "Laptops"
+},
+{
+  "_id": "685a22e19ccc59991c907ee2",
+  "name": "Acer Swift 3",
+  "price": 54990,
+  "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRgLSIXyjMfL-5dNuDZC92GzaWMHYFJOJx_ncEtjwDCiGfc0N4IiyX574s92MJHH8fSc_5uxinpziKs20at-5Y95W-IlznA3C9Oie9ZNB8",
+  "description": "14-inch FHD IPS display, Intel Core i5, 8GB RAM, 512GB SSD, 1.2kg lightweight. Origin: Taiwan.",
+  "category": "Laptops"
+},
+{
+  "_id": "685a22e19ccc59991c907ee3",
+  "name": "Microsoft Surface Laptop 5",
+  "price": 99990,
+  "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSkOEEkw6pg_slIe6NqPDXQ9q_YSGdKrUtHsPXfuVVbPj-ttI6t3rwGZ1spGkNVRUjvorJB-Qu2X8ldaC5SFL9Ukkyh7Q9cQrEt2Jv6KYne",
+  "description": "13.5-inch PixelSense touchscreen, Intel Core i5, 8GB RAM, 512GB SSD. Origin: USA.",
+  "category": "Laptops"
+},
+{
+  "_id": "685a22e19ccc59991c907ee4",
+  "name": "Samsung Galaxy Book2 Pro",
+  "price": 89990,
+  "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQXyhnzxq9MtFUz-iwFfTg5NbpjB1BNnWHktYqGFuoyhsFJrrrtReKq2b15QPhB1HCH-VuM4W7z4PHQy9oR2YWI7N3YOj738FGoOEOqLUg",
+  "description": "15.6-inch AMOLED display, Intel Core i7, 16GB RAM, 512GB SSD, S-Pen included. Origin: South Korea.",
+  "category": "Laptops"
+},
+{
+  "_id": "685a22e19ccc59991c907eed",
+  "name": "Titan Karishma Analog",
+  "price": 3495,
+  "image": "https://www.titan.co.in/on/demandware.static/-/Sites-titan-master-catalog/default/dwcde5700f/images/Titan/Catalog/1648SM01_1.jpg",
+  "description": "Gold-plated stainless steel case, mineral glass, Japanese quartz movement. Origin: India.",
+  "category": "Watches"
+},
+{
+  "_id": "685a22e19ccc59991c907eee",
+  "name": "Casio G-Shock GA-2100",
+  "price": 8995,
+  "image": "https://www.casio.com/content/dam/casio/product-info/locales/in/en/timepiece/product/watch/G/GA/GA2/GA-2100-1A/assets/GA-2100-1A_Seq1.png.transform/main-visual-sp/image.png",
+  "description": "Carbon core guard structure, 200m water resistance, shock resistant. Origin: Japan.",
+  "category": "Watches"
+},
+{
+  "_id": "685a22e19ccc59991c907eef",
+  "name": "Fossil Gen 6 Smartwatch",
+  "price": 19995,
+  "image": "https://m.media-amazon.com/images/I/71Vqggkd8hL.jpg",
+  "description": "Wear OS, heart rate monitor, GPS, 30+ sports modes, 24hr battery. Origin: USA.",
+  "category": "Watches"
+},
+{
+  "_id": "685a22e19ccc59991c907ef0",
+  "name": "Seiko 5 Sports Automatic",
+  "price": 24990,
+  "image": "https://seikowatches.co.in/cdn/shop/files/SRPD51K1.png?v=1685705092",
+  "description": "Automatic movement, 41mm stainless steel case, 100m water resistant. Origin: Japan.",
+  "category": "Watches"
+},
+{
+  "_id": "685a22e19ccc59991c907ef1",
+  "name": "Noise ColorFit Pro 4",
+  "price": 4999,
+  "image": "https://m.media-amazon.com/images/I/61jOliJK5CL.jpg",
+  "description": "1.78\" AMOLED display, SpO2 monitor, 60 sports modes, 7-day battery. Origin: India.",
+  "category": "Watches"
+},
+{
+  "_id": "685a22e19ccc59991c907ef2",
+  "name": "Citizen Eco-Drive BM8180",
+  "price": 18995,
+  "image": "https://m.media-amazon.com/images/I/81t0KQkVwpS._UY1000_.jpg",
+  "description": "Light-powered technology, 100m water resistant, military-inspired design. Origin: Japan.",
+  "category": "Watches"
+},
+{
+  "_id": "685a22e19ccc59991c907ef3",
+  "name": "Fastrack Reflex Play",
+  "price": 2999,
+  "image": "https://m.media-amazon.com/images/I/61IMrFbKBxL._UY1000_.jpg",
+  "description": "1.3\" LCD display, 10 sports modes, IP68 rating, 10-day battery. Origin: India.",
+  "category": "Watches"
+},
+{
+  "_id": "685a22e19ccc59991c907ef4",
+  "name": "Timex Marlin Automatic",
+  "price": 14995,
+  "image": "https://shop.timexindia.com/cdn/shop/files/TW2W33900.jpg?v=1714885454",
+  "description": "Hand-wound mechanical movement, 40mm case, vintage-inspired design. Origin: USA.",
+  "category": "Watches"
+},
+{
+  "_id": "685a22e19ccc59991c907ed3",
+  "name": "Nike Air Force 1 '07",
+  "price": 7495,
+  "image": "https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/b7d9211c-26e7-431a-ac24-b0540fb3c00f/AIR+FORCE+1+%2707.png",
+  "description": "Iconic leather sneakers with Air-Sole cushioning, padded collar, and perforations for breathability. Origin: USA.",
+  "category": "Shoes"
+},
+{
+  "_id": "685a22e19ccc59991c907ed4",
+  "name": "Adidas Ultraboost Light",
+  "price": 8999,
+  "image": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/a45e6248a34a40b1abdea7c074e9c045_9366/Ultraboost_Light_Shoes_Black_GZ5159_HM1.jpg",
+  "description": "Primeknit+ upper with 30% more Boost cushioning, Continental rubber outsole. Origin: Germany.",
+  "category": "Shoes"
+},
+{
+  "_id": "685a22e19ccc59991c907ed5",
+  "name": "New Balance 990v6",
+  "price": 9990,
+  "image": "https://cdn-images.farfetch-contents.com/19/36/38/27/19363827_44338928_1000.jpg",
+  "description": "Made in USA series with FuelCell midsole, pigskin and mesh upper. Origin: USA.",
+  "category": "Shoes"
+},
+{
+  "_id": "685a22e19ccc59991c907ed6",
+  "name": "Puma Future Rider",
+  "price": 5499,
+  "image": "https://cdn-images.farfetch-contents.com/22/91/69/16/22916916_53794110_1000.jpg",
+  "description": "Vintage-inspired sneakers with rubber outsole and cushioned footbed. Origin: Germany.",
+  "category": "Shoes"
+},
+{
+  "_id": "685a22e19ccc59991c907ed7",
+  "name": "Converse Chuck Taylor All Star",
+  "price": 5299,
+  "image": "https://www.converse.in/media/catalog/product/m/9/m9160_a_107x1.jpg",
+  "description": "Classic canvas high-tops with rubber toe cap and vulcanized sole. Origin: USA.",
+  "category": "Shoes"
+},
+{
+  "_id": "685a22e19ccc59991c907ed8",
+  "name": "Vans Old Skool",
+  "price": 5999,
+  "image": "https://i8.amplience.net/i/jpl/jd_061773_a?qlt=92",
+  "description": "Iconic skate shoes with durable suede and canvas upper, waffle outsole. Origin: USA.",
+  "category": "Shoes"
+},
+{
+  "_id": "685a22e19ccc59991c907ed9",
+  "name": "Reebok Club C 85",
+  "price": 6499,
+  "image": "https://cdn-images.farfetch-contents.com/16/34/21/80/16342180_31359836_600.jpg",
+  "description": "Vintage tennis shoes with full-grain leather upper and EVA midsole. Origin: UK.",
+  "category": "Shoes"
+},
+{
+  "_id": "685a22e19ccc59991c907eda",
+  "name": "ASICS Gel-Kayano 30",
+  "price": 8990,
+  "image": "https://www.asics.co.in/media/catalog/product/1/0/1011b548_402_sr_rt_glb-base.jpg",
+  "description": "Stability running shoes with FF BLAST PLUS ECO cushioning. Origin: Japan.",
+  "category": "Shoes"
+},
+{
+  "_id": "685a22e19ccc59991c907ef5",
+  "name": "Allen Solly Men's Slim Fit Shirt",
+  "price": 1299,
+  "image": "https://assets.myntassets.com/w_412,q_60,dpr_2,fl_progressive/assets/images/21563332/2023/1/16/075b22ed-fc0b-4a25-b1a8-8322949d63341673860298065MenNavySlimFitSolidFullSleevesCasualShirts1.jpg",
+  "description": "100% cotton slim fit formal shirt with spread collar. Origin: India.",
+  "category": "cloths"
+},
+{
+  "_id": "685a22e19ccc59991c907ef6",
+  "name": "H&M Women's Regular Fit T-Shirt",
+  "price": 599,
+  "image": "https://assets.ajio.com/medias/sys_master/root/20240912/PXTd/66e2c41a6f60443f3174acdf/-473Wx593H-700413358-black-MODEL.jpg",
+  "description": "Cotton crew neck t-shirt available in multiple colors. Origin: Sweden.",
+  "category": "cloths"
+},
+{
+  "_id": "685a22e19ccc59991c907ef7",
+  "name": "Levi's Men's 511 Slim Fit Jeans",
+  "price": 2999,
+  "image": "https://levi.in/cdn/shop/files/182981482_01_Front_4b14f5bd-3c6a-4603-acda-096c5675d825.jpg?v=1740488440",
+  "description": "98% cotton, 2% elastane stretch denim jeans. Origin: USA.",
+  "category": "cloths"
+},
+{
+  "_id": "685a22e19ccc59991c907ef8",
+  "name": "Zara Women's Printed Dress",
+  "price": 1999,
+  "image": "https://static.zara.net/assets/public/8827/724b/79c64d0e981a/4fac5d0899f4/03749846300-a1/03749846300-a1.jpg?ts=1749115390825&w=352&f=auto",
+  "description": "Knee-length floral print dress with short sleeves. Origin: Spain.",
+  "category": "cloths"
+},
+{
+  "_id": "685a22e19ccc59991c907ef9",
+  "name": "Puma Men's Active Tracksuit",
+  "price": 2599,
+  "image": "https://m.media-amazon.com/images/I/61vh76uqMVL._UY1100_.jpg",
+  "description": "Polyester joggers and jacket set with moisture-wicking technology. Origin: Germany.",
+  "category": "cloths"
+},
+{
+  "_id": "685a22e19ccc59991c907efa",
+  "name": "FabIndia Women's Cotton Kurti",
+  "price": 1499,
+  "image": "https://m.media-amazon.com/images/I/711hxrdumIL._UY1100_.jpg",
+  "description": "Hand-block printed straight cut kurti with round neck. Origin: India.",
+  "category": "cloths"
+},
+{
+  "_id": "685a22e19ccc59991c907efb",
+  "name": "Adidas Originals Hoodie",
+  "price": 3499,
+  "image": "https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/18520156/2022/9/16/fb2e7751-1c38-46ed-aa86-d6786952b9681663329664210-ADIDAS-Originals-Men-Sweatshirts-4491663329663733-1.jpg",
+  "description": "Fleece-lined hoodie with kangaroo pocket and adjustable drawstring. Origin: Germany.",
+  "category": "cloths"
+},
+{
+  "_id": "685a22e19ccc59991c907efc",
+  "name": "Raymond Men's Formal Blazer",
+  "price": 5999,
+  "image": "https://assets.myntassets.com/dpr_1.5,q_60,w_400,c_limit,fl_progressive/assets/images/27625732/2024/10/21/01830ba4-c233-4258-90f9-314ba1afa9fd1729509167980-Raymond-Contemporary-Fit-Single-Breasted-Formal-Blazer-78817-1.jpg",
+  "description": "Wool blend slim fit blazer with notch lapel. Origin: India.",
+  "category": "cloths"
+},
+{
+  "_id": "685a22e19ccc59991c907efd",
+  "name": "OnePlus Y1S Pro 43-inch LED Smart TV",
+  "price": 26999,
+  "image": "https://oasis.opstatics.com/content/dam/oasis/page/dubaipro/dubaipro-mo/Y1s%20Pro%20.png",
+  "description": "4K Ultra HD Android TV with Dolby Audio, 20W speakers, and HDR10+. Origin: China.",
+  "category": "Tv"
+},
+{
+  "_id": "685a22e19ccc59991c907efe",
+  "name": "Samsung Crystal 4K 55-inch Smart TV",
+  "price": 49990,
+  "image": "https://m.media-amazon.com/images/I/71viWVwI0JL.jpg",
+  "description": "Crystal 4K UHD with Dynamic Color, 3 HDMI ports, and Crystal Processor 4K. Origin: South Korea.",
+  "category": "Tv"
+},
+{
+  "_id": "685a22e19ccc59991c907eff",
+  "name": "LG OLED C3 65-inch Smart TV",
+  "price": 129990,
+  "image": "https://img-prd-pim.poorvika.com/cdn-cgi/image/width=500,height=500,quality=75/product/Lg-4k-ultra-hd-smart-oled-evo-tv-c3-65-inch-oled65c3psa-Front-View.png",
+  "description": "OLED evo 4K TV with α9 Gen6 AI Processor, Dolby Vision IQ, and 120Hz refresh rate. Origin: South Korea.",
+  "category": "Tv"
+},
+{
+  "_id": "685a22e19ccc59991c907f00",
+  "name": "Mi 5X 50-inch LED Smart TV",
+  "price": 32999,
+  "image": "https://rukminim2.flixcart.com/image/750/900/xif0q/television/4/n/x/-original-imagu4368g8vznua.jpeg?q=90&crop=false",
+  "description": "4K Android TV with Dolby Vision, 30W speakers, and PatchWall 4. Origin: China.",
+  "category": "Tv"
+},
+{
+  "_id": "685a22e19ccc59991c907f01",
+  "name": "Sony Bravia X74L 55-inch Smart TV",
+  "price": 59990,
+  "image": "https://rukminim2.flixcart.com/image/750/900/xif0q/television/j/p/d/-original-imagw7yhmbhzhcnp.jpeg?q=90&crop=false",
+  "description": "4K HDR Processor X1, Triluminos Pro, and X-Balanced Speaker. Origin: Japan.",
+  "category": "Tv"
+},
+{
+  "_id": "685a22e19ccc59991c907f02",
+  "name": "Thomson OATHPRO 32-inch HD Ready Smart TV",
+  "price": 12999,
+  "image": "https://thomsonhome.in//wp-content/uploads/2025/05/32TM3290-25-2-768x768.webp",
+  "description": "Android 11 with Google Assistant, 20W Box Speakers, and 1GB RAM. Origin: India.",
+  "category": "Tv"
+},
+{
+  "_id": "685a22e19ccc59991c907f03",
+  "name": "TCL C645 43-inch QLED Smart TV",
+  "price": 34990,
+  "image": "https://d3fppka8t5rpz7.cloudfront.net/filters:format(webp)/dev/images/81QkQo-YkQL._SL1500_.jpg",
+  "description": "4K QLED with Dolby Vision, 60Hz refresh rate, and 30W speakers. Origin: China.",
+  "category": "Tv"
+},
+{
+  "_id": "685a22e19ccc59991c907f04",
+  "name": "Realme Smart TV 32-inch HD Ready",
+  "price": 14999,
+  "image": "https://rukminim2.flixcart.com/image/750/900/xif0q/television/h/a/r/-original-imaghgphdj9fsvzt.jpeg?q=90&crop=false",
+  "description": "Android TV with Chromecast built-in, 20W speakers, and bezel-less design. Origin: China.",
+  "category": "Tv"
+},
+{
+  "_id": "685a22e19ccc59991c907f05",
+  "name": "LEGO Classic Creative Brick Box",
+  "price": 1499,
+  "image": "https://m.media-amazon.com/images/I/81nZVW8OXQL.jpg",
+  "description": "790 pieces of colorful LEGO bricks for creative building. Age: 4+. Origin: Denmark.",
+  "category": "Toys"
+},
+{
+  "_id": "685a22e19ccc59991c907f06",
+  "name": "Barbie Dreamhouse Doll",
+  "price": 3999,
+  "image": "https://m.media-amazon.com/images/I/81F-0jowzEL.jpg",
+  "description": "3-story dollhouse with elevator, pool, and 70+ accessories. Age: 3+. Origin: USA.",
+  "category": "Toys"
+},
+{
+  "_id": "685a22e19ccc59991c907f07",
+  "name": "Hot Wheels 20 Car Gift Pack",
+  "price": 999,
+  "image": "https://m.media-amazon.com/images/I/81Ykz9TAacL._UF1000,1000_QL80_.jpg",
+  "description": "20 die-cast vehicles with authentic detailing. Age: 3+. Origin: USA.",
+  "category": "Toys"
+},
+{
+  "_id": "685a22e19ccc59991c907f08",
+  "name": "Funskool Play Doh Kitchen Creations",
+  "price": 599,
+  "image": "https://m.media-amazon.com/images/I/91U-JHp5nfL.jpg",
+  "description": "10 cans of non-toxic modeling compound with tools. Age: 2+. Origin: India.",
+  "category": "Toys"
+},
+{
+  "_id": "685a22e19ccc59991c907f09",
+  "name": "Melissa & Doug Wooden Building Blocks",
+  "price": 1299,
+  "image": "https://m.media-amazon.com/images/I/71jVEjU17nL._UF1000,1000_QL80_.jpg",
+  "description": "100-piece set of solid wood blocks in various shapes. Age: 2+. Origin: USA.",
+  "category": "Toys"
+},
+{
+  "_id": "685a22e19ccc59991c907f0a",
+  "name": "Fisher-Price Laugh & Learn Smart Stages Chair",
+  "price": 1999,
+  "image": "https://m.media-amazon.com/images/I/71NjwHQF1oL.jpg",
+  "description": "Interactive learning chair with 50+ songs and phrases. Age: 6-36 months. Origin: USA.",
+  "category": "Toys"
+},
+{
+  "_id": "685a22e19ccc59991c907f0b",
+  "name": "Hamleys Remote Control Car",
+  "price": 1299,
+  "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTw9l2NGm8X8gjX5maw3rQd0ob56bnhzKlOmg&s",
+  "description": "2.4GHz RC car with 360° rotation and LED lights. Age: 5+. Origin: UK.",
+  "category": "Toys"
+},
+{
+  "_id": "685a22e19ccc59991c907f0c",
+  "name": "Crayola Inspiration Art Case",
+  "price": 799,
+  "image": "https://m.media-amazon.com/images/I/61EyjnzyunL._UF1000,1000_QL80_.jpg",
+  "description": "140-piece art set with crayons, markers, and colored pencils. Age: 4+. Origin: USA.",
+  "category": "Toys"
+},
+{
+  "_id": {
+    "$oid": "685c502b4a16461cf5222f11"
+  },
+  "name": "toy Car",
+  "description": "LuvLap Sunny Ride On Car",
+  "price": 1407,
+  "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT8O9D1epv44CuQksmq1dX8k0C0mJuarNQtJ257vle-Z9myzZqp8B2cTbigi5HODlGoOQjt9I8J3RJTP1w_P6Vk0XQLn8T2BTm28Vvz3Y38SW203b5lJdIqig",
+  "category": "Toys",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "685c507f4a16461cf5222f14"
+  },
+  "name": "webby toy",
+  "description": "Webby Free Wheel Panda Magic Car Toy with Back Rest",
+  "price": 1500,
+  "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTxmc-hVKcsHlxIPy_U-pH-F3xZ_qNAQUApYJjw-9En4qCiudwkvBASzzNohkvihkp1DaDefhseksonJO07vIf6Bl-iNc6JJNvBekllvQ_zw-uJbDCHKuPg",
+  "category": "Toys",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "685c513e4a16461cf5222f17"
+  },
+  "name": "Xiaomi FX Pro QLED Series 55 Smart TV",
+  "description": "Brand Xiaomi Resolution 3840 x 2160 High Definition Yes HDTV Format 4K Screen Form Flat Display Type LED Refresh Rate 60 Hz Connectivity Wi-Fi, USB, HDMI Screen Size 55 in",
+  "price": 39999,
+  "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcScL01gD7dCwa-ginCfakIqZlv-IKC_bUruvvSQnyP_KM80UqsHe6WDfS4v7DCFd5U71vvSAmZ987_hrA2qNdc9p9Wa0wg8reBIs671QQ_mBoy6VBqkJZLC",
+  "category": "Tv",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "685c51884a16461cf5222f1a"
+  },
+  "name": "LG 80 cm HD Ready Smart LED TV",
+  "description": "HDR Yes Refresh Rate 50 Hz Connectivity Wi-Fi, USB, HDMI Supported Streaming Netflix, Amazon Screen Size 32 in Viewing Angle 178° viewing angle",
+  "price": 15000,
+  "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcS_3w9HkXMWpaTW3yFGUkO2FH2g3mXbNBLpLqWJedFcv4yfFrR6PMgpVvl2SH0VepTZAiDxW13mGIT1UsY6lWjCqs4oJQN89HMiWGOscGU",
+  "category": "Tv",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "685c51d44a16461cf5222f1d"
+  },
+  "name": "The Souled Store Men's Original Plaid Relaxed Shirt",
+  "description": "Material Cotton Material Comp 100% Cotton Neckline Collared",
+  "price": 1500,
+  "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcS3TbQkCVRBTaHJURb5sUBotLJAAAiV39UqaFq3wFRUoQZKvqBgVtam_SCaXsIBOoBR88G_qP_jDSnokZBYYAD8JKnYOUQ1VZ5Ko4TBlf1gFIpS9D5gPCgs9g",
+  "category": "cloths",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "685c528f4a16461cf5222f21"
+  },
+  "name": "Snitch Men Reese Seersucker Shirt At NykaaMan",
+  "description": "Material Rayon Brand SNITCH Color Off White, White, Grey, Light Grey, Lavender",
+  "price": 1000,
+  "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQL83nmWrtZtK5AQeSutmEqbF59sPCfZvS58QNufY3p0s87sBGzJASsC0fGx-Spz-QSN91m2KEvXg1A9I5t0kBbd-XPzbXw5GMkxmNd_0_2tYwHOCGK59_hXw",
+  "category": "cloths",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "685c52f54a16461cf5222f24"
+  },
+  "name": "Red Tape Men's Casual Sneaker Shoes",
+  "description": "Wipe with a clean, dry cloth when needed Benefits: Engage with this decent pair of shoes, giving away the casual-modern feel.",
+  "price": 2000,
+  "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTm_0GPXZwejX3d3zrjXi-jD3pwz59GHYIzr338w33XjLtfeQq4AG44yHsJdQAZjsbvdQHs9lXHISdLB06ArtotS4zJeiit3v36ZcOGb0n2SWDZJlmv_igZGvU",
+  "category": "Shoes",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "685c533d4a16461cf5222f27"
+  },
+  "name": "ASIAN Men's Dominator-03 Running Shoes",
+  "description": "A pair of grey shoes, has regular Styling, lace-ups detail Upper Cushioned footbed Textured and patterned outsole",
+  "price": 1300,
+  "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRYDX4-NjOCFFjljzW9fstUYRU1AFOySA9vIpKW_XBl-rkuoB9u2vF-NRUtAGJVunfz1E4fEUPoouvCue5PXnsaUcMs0I9VghDAL7CJwnjjQ1xBFCZoBQVnGcU",
+  "category": "Shoes",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "685c53994a16461cf5222f2a"
+  },
+  "name": "HP Victus",
+  "description": "12th Generation Intel® Core™ i5 processor Windows 11 Home 16 GB DDR4 RAM 512 GB SSD Hard drive",
+  "price": 62100,
+  "image": "https://electronicparadise.in/cdn/shop/files/4_65e28377-a245-4b2d-b59a-9a4d1d88d331.jpg?v=1731587298",
+  "category": "Laptops",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "685c54054a16461cf5222f2d"
+  },
+  "name": "Lenovo IdeaPad Slim 5",
+  "description": "16GB/ 1TB SSD/ Integrated Intel Arc Graphics/ IPS 300nits/ Anti-glare/ 100% sRGB/ 60Hz",
+  "price": 78990,
+  "image": "https://sathya.in/media/98540/catalog/lenova1%20(32).jpg?size=600",
+  "category": "Laptops",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "685c54574a16461cf5222f30"
+  },
+  "name": "boAt Rockerz 650 Pro",
+  "description": "Wireless Headphones Driver Size 40mm*2 drivers ",
+  "price": 2999,
+  "image": "https://www.boat-lifestyle.com/cdn/shop/files/mainimage_458147a3-eabc-4816-a1c0-429c950422ad_1500x.png?v=1741067646",
+  "category": "Headphones",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "685c55a94a16461cf5222f35"
+  },
+  "name": "Trueno U20",
+  "description": "Bluetooth 5.4, Hybrid ANC/ENC, and spatial audio with 40mm drivers",
+  "price": 6999,
+  "image": "https://honeywellconnection.com/in/wp-content/uploads/2025/01/Main-image.jpg",
+  "category": "Headphones",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "685c56124a16461cf5222f38"
+  },
+  "name": "Wheels Rolling Creative Watch",
+  "description": "Case Material Type: Zinc Alloy Shape: Round Dial Colour: Black-Red Crystal Material: Glass Case Width (mm): 43",
+  "price": 1799,
+  "image": "https://skmei.in/cdn/shop/files/1787_1.jpg",
+  "category": "Watches",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "685c56674a16461cf5222f3b"
+  },
+  "name": "Diollo DIO20 Mechanical watch ",
+  "description": "Stainless steel watch x 1 Manual x 1 Warranty Card Peace of cotton cloth",
+  "price": 6499,
+  "image": "https://diollo.in/wp-content/uploads/2021/10/front-1536x1536.jpg",
+  "category": "Watches",
+  "__v": 0
+}]

@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 app.use(express.static('public')); // Serves your HTML/CSS/JS
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://dt555855:DIRMHVtWKQKqN9yA@e-shop.aismjpw.mongodb.net/?retryWrites=true&w=majority&appName=E-shop');
+mongoose.connect('mongodb+srv://dt555855:D1RMHVtWKQKqN9yA@e-shop.aismjpw.mongodb.net/?retryWrites=true&w=majority&appName=E-shop');
 
 // Create a schema and model
 const UserSchema = new mongoose.Schema({

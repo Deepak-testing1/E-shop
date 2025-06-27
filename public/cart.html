@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Cart</title>
+    <link rel="icon" type="image/x-icon" href="/img/icon1.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Cart-specific styles */
+      #cart table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 30px;
+      }
+
+      #cart table thead {
+        background-color: #f5f5f5;
+      }
+
+      #cart table th,
+      #cart table td {
+        padding: 15px;
+        border: 1px solid #e1e1e1;
+        text-align: center;
+      }
+
+      #cart table td img {
+        width: 80px;
+        height: auto;
+      }
+
+      .remove-item {
+        color: #ff0000;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .remove-item:hover {
+        color: #cc0000;
+        transform: scale(1.1);
+      }
+
+      .quantity-input {
+        width: 60px;
+        padding: 8px;
+        text-align: center;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+
+      #cart-add {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 30px;
+      }
+
+      #coupon {
+        width: 50%;
+        margin-bottom: 30px;
+      }
+
+      #coupon h3 {
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+      }
+
+      #coupon div {
+        display: flex;
+      }
+
+      #coupon input {
+        padding: 12px 20px;
+        width: 70%;
+        margin-right: 10px;
+        border: 1px solid #e1e1e1;
+        border-radius: 4px;
+      }
+
+      #subtotal {
+        width: 45%;
+        margin-bottom: 30px;
+        border: 1px solid #e1e1e1;
+        padding: 30px;
+        border-radius: 8px;
+      }
+
+      #subtotal h3 {
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #e1e1e1;
+      }
+
+      #subtotal table {
+        width: 100%;
+        margin-bottom: 20px;
+        border-collapse: collapse;
+      }
+
+      #subtotal table td {
+        padding: 12px 0;
+        border: none;
+        text-align: left;
+      }
+
+      #subtotal table tr:last-child td {
+        font-weight: bold;
+        font-size: 1.1rem;
+        border-top: 1px solid #e1e1e1;
+      }
+
+      .empty-cart-message {
+        text-align: center;
+        padding: 50px 0;
+        font-size: 1.2rem;
+        color: #666;
+      }
+
+      .empty-cart-message i {
+        font-size: 3rem;
+        display: block;
+        margin-bottom: 20px;
+        color: #ddd;
+      }
+
+      @media (max-width: 768px) {
+        #cart-add {
+          flex-direction: column;
+        }
+
+        #coupon,
+        #subtotal {
+          width: 100%;
+        }
+
+        #coupon input {
+          width: 60%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <section id="header">
+      <div>
+        <ul id="navbar">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="about.html">About</a></li>
+          <li id="lg-bag">
+            <a class="active" href="cart.html"
+              ><i class="bx bx-shopping-bag"></i
+            ></a>
+          </li>
+          <a href="#" id="close"><i class="bx bx-x"></i></a>
+          <li style="position: absolute; right: 30px" id="navbar-auth">
+            <a href="signup.html">Signup</a>
+            <a href="login.html">/Login</a>
+          </li>
+        </ul>
+      </div>
+      <div id="mobile">
+        <a href="cart.html"><i class="bx bx-shopping-bag"></i></a>
+        <i id="bar" class="bx bx-menu"></i>
+      </div>
+    </section>
+
+    <section id="cart" class="section-p1">
+      <table width="100%">
+        <thead>
+          <tr>
+            <td>Remove</td>
+            <td>Image</td>
+            <td>Product</td>
+            <td>Price</td>
+            <td>Quantity</td>
+            <td>Subtotal</td>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Cart items will be dynamically inserted here by JavaScript -->
+        </tbody>
+      </table>
+    </section>
+
+    <section id="cart-add" class="section-p1">
+      <div id="coupon">
+        <h3>Apply Coupon</h3>
+        <div>
+          <input
+            type="text"
+            placeholder="Enter Your Coupon Code"
+            id="coupon-input"
+          />
+          <button class="normal" id="apply-coupon">Apply</button>
+        </div>
+      </div>
+
+      <div id="subtotal">
+        <h3>Cart Totals</h3>
+        <table>
+          <!-- Cart totals will be dynamically inserted here by JavaScript -->
+        </table>
+        <button class="normal" id="checkout-btn">Proceed to Checkout</button>
+      </div>
+    </section>
+
+    <section id="empty-cart" style="display: none">
+      <div class="empty-cart-message">
+        <i class="bx bx-cart"></i>
+        <p>Your cart is empty</p>
+        <a
+          href="shop.html"
+          class="normal"
+          style="margin-top: 20px; display: inline-block"
+          >Continue Shopping</a
+        >
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+      // Additional cart page specific functionality
+      document
+        .getElementById("checkout-btn")
+        .addEventListener("click", function () {
+          // Check if user is logged in
+          const userName = localStorage.getItem('eshopUserName');
+          if (!userName) {
+            // If not logged in, redirect to login page
+            window.location.href = "login.html";
+          } else {
+            // If logged in, redirect to payment page
+            window.location.href = "payment.html";
+          }
+        });
+
+      document
+        .getElementById("apply-coupon")
+        .addEventListener("click", function () {
+          const couponCode = document.getElementById("coupon-input").value;
+          if (couponCode) {
+            alert(
+              `Coupon "${couponCode}" is not valid`
+            );
+          } else {
+            alert("Please enter a coupon code");
+          }
+        });
+
+      // Navbar login state logic
+      function updateNavbarAuth() {
+        const userName = localStorage.getItem('eshopUserName');
+        const navbarAuth = document.getElementById('navbar-auth');
+        if (userName) {
+          navbarAuth.innerHTML = `
+            <span style='font-weight:bold; display: flex; align-items: center;'>
+              <i class="bx bx-user-circle" style="font-size: 1.7em; margin-right: 6px;"></i>
+              <a href="profile.html" id="profile-link" style="color: #11998e; text-decoration: none; font-weight: bold;">${userName}</a>
+            </span>
+          `;
+        } else {
+          navbarAuth.innerHTML = `<a href="signup.html">Signup</a> <a href="login.html">/Login</a>`;
+        }
+      }
+      updateNavbarAuth();
+
+      // Add to cart logic
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('.pro-container').addEventListener('click', async function(e) {
+          // Buy button logic (already present)
+          if (e.target.classList.contains('buy-btn')) {
+            if (!localStorage.getItem('eshopUserName')) {
+              window.location.href = 'login.html';
+            } else {
+              window.location.href = 'cart.html';
+            }
+          }
+          // Cart icon logic
+          if (e.target.closest('.add-to-cart')) {
+            e.preventDefault();
+            const userName = localStorage.getItem('eshopUserName');
+            const userEmail = localStorage.getItem('eshopUserEmail'); // You must store email at login/signup
+            if (!userEmail) {
+              alert('Please log in to add to cart!');
+              window.location.href = 'login.html';
+              return;
+            }
+            const cartLink = e.target.closest('.add-to-cart');
+            const name = decodeURIComponent(cartLink.getAttribute('data-name'));
+            const price = Number(cartLink.getAttribute('data-price'));
+            const image = decodeURIComponent(cartLink.getAttribute('data-image'));
+            const description = decodeURIComponent(cartLink.getAttribute('data-description'));
+            // Send to backend
+            const res = await fetch('/api/cart', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ user: userEmail, name, price, image, description })
+            });
+            const data = await res.json();
+            alert(data.message);
+          }
+        });
+      });
+
+      async function renderCart() {
+        const res = await fetch(`/api/cart?user=guest`);
+        const cart = await res.json();
+        const tbody = document.querySelector('#cart tbody');
+        const emptyCartSection = document.getElementById('empty-cart');
+        const cartSection = document.getElementById('cart');
+        const subtotalTable = document.querySelector('#subtotal table');
+        let total = 0;
+        let delivery = 0;
+
+        tbody.innerHTML = '';
+        subtotalTable.innerHTML = '';
+
+        if (!cart.length) {
+          cartSection.style.display = 'none';
+          emptyCartSection.style.display = '';
+          return;
+        } else {
+          cartSection.style.display = '';
+          emptyCartSection.style.display = 'none';
+        }
+
+        cart.forEach((item, idx) => {
+          const itemSubtotal = item.price * item.quantity;
+          total += itemSubtotal;
+          tbody.innerHTML += `
+            <tr>
+              <td><span class="remove-item" data-id="${item._id}" style="cursor:pointer;">&times;</span></td>
+              <td><img src="${item.image}" alt="${item.name}" /></td>
+              <td>${item.name}</td>
+              <td>₹${Number(item.price).toLocaleString()}</td>
+              <td>
+                <input type="number" min="1" value="${item.quantity}" class="quantity-input" data-id="${item._id}" style="width:50px;" />
+              </td>
+              <td>₹${Number(itemSubtotal).toLocaleString()}</td>
+            </tr>
+          `;
+        });
+
+        delivery = total * 0.01;
+        const grandTotal = total + delivery;
+
+        subtotalTable.innerHTML = `
+          <tr>
+            <td>Subtotal</td>
+            <td>₹${Number(total).toLocaleString()}</td>
+          </tr>
+          <tr>
+            <td>Delivery </td>
+            <td>₹${Number(delivery).toLocaleString(undefined, {maximumFractionDigits: 2})}</td>
+          </tr>
+          <tr>
+            <td>Total</td>
+            <td>₹${Number(grandTotal).toLocaleString(undefined, {maximumFractionDigits: 2})}</td>
+          </tr>
+        `;
+
+        // Store amounts in localStorage for payment page
+        localStorage.setItem('eshop_subtotal', total);
+        localStorage.setItem('eshop_delivery', delivery);
+        localStorage.setItem('eshop_total', grandTotal);
+
+        // Attach remove event
+        tbody.querySelectorAll('.remove-item').forEach(span => {
+          span.onclick = async function() {
+            const id = this.getAttribute('data-id');
+            if (id) {
+              const delRes = await fetch(`/api/cart/${id}`, { method: 'DELETE' });
+              if (delRes.ok) {
+                await renderCart();
+              }
+            }
+          };
+        });
+
+        // Attach quantity update event
+        tbody.querySelectorAll('.quantity-input').forEach(input => {
+          input.onchange = async function() {
+            const id = this.getAttribute('data-id');
+            const newQty = parseInt(this.value, 10);
+            if (id && newQty > 0) {
+              const patchRes = await fetch(`/api/cart/${id}`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ quantity: newQty })
+              });
+              if (patchRes.ok) {
+                await renderCart();
+              }
+            }
+          };
+        });
+
+        // Checkout button handler
+        document.getElementById('checkout-btn').addEventListener('click', async function() {
+          // Check if user is logged in
+          const userName = localStorage.getItem('eshopUserName');
+          if (!userName) {
+            // If not logged in, redirect to login page
+            window.location.href = 'login.html';
+            return;
+          }
+          
+          const res = await fetch(`/api/cart?user=guest`);
+          const cart = await res.json();
+          if (cart.length === 0) {
+            alert('Your cart is empty!');
+            return;
+          }
+          // Calculate totals
+          let total = 0;
+          cart.forEach(item => {
+            total += item.price * item.quantity;
+          });
+          const delivery = total * 0.05;
+          const grandTotal = total + delivery;
+
+          // Store all data in localStorage for payment page
+          localStorage.setItem('eshop_cart_items', JSON.stringify(cart));
+          localStorage.setItem('eshop_subtotal', total);
+          localStorage.setItem('eshop_delivery', delivery);
+          localStorage.setItem('eshop_total', grandTotal);
+
+          // If logged in, redirect to payment page
+          window.location.href = 'payment.html';
+        });
+      }
+      document.addEventListener('DOMContentLoaded', renderCart);
+
+      // Remove item and update quantity logic
+      document.addEventListener('DOMContentLoaded', function() {
+        renderCart();
+        document.querySelector('#cart tbody').addEventListener('click', async function(e) {
+          if (e.target.classList.contains('remove-item')) {
+            const id = e.target.getAttribute('data-id');
+            if (id) {
+              const delRes = await fetch(`/api/cart/${id}`, { method: 'DELETE' });
+              if (delRes.ok) {
+                await renderCart();
+              }
+            }
+          }
+        });
+        // Update quantity
+        document.querySelector('#cart tbody').addEventListener('input', async function(e) {
+          if (e.target.classList.contains('quantity-input')) {
+            const idx = e.target.getAttribute('data-index');
+            const res = await fetch(`/api/cart?user=guest`);
+            const cart = await res.json();
+            const item = cart[idx];
+            const newQty = parseInt(e.target.value, 10);
+            if (item && newQty > 0) {
+              // Send PATCH request to backend to update quantity
+              const patchRes = await fetch(`/api/cart/${item._id}`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ quantity: newQty })
+              });
+              if (patchRes.ok) {
+                await renderCart();
+              }
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

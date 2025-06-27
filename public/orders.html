@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Orders & Payment Details</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+      font-family: 'Spartan', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .orders-container {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(56, 239, 125, 0.10), 0 1.5px 8px rgba(0,0,0,0.07);
+      padding: 2.5rem 2.5rem 2rem 2.5rem;
+      
+      width: 100%;
+      margin: 3rem auto;
+      text-align: center;
+    }
+    h3 {
+      color: #11998e;
+      margin-bottom: 2rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+    }
+    th, td {
+      padding: 10px 8px;
+      border: 1px solid #e1e1e1;
+      text-align: center;
+      font-size: 1rem;
+    }
+    th {
+      background: #e0eafc;
+      color: #11998e;
+    }
+    tr:nth-child(even) {
+      background: #f8f9fa;
+    }
+    .order-items-list {
+      text-align: left;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <section id="header" style="padding: 30px;">
+    <div>
+      <ul id="navbar">
+        <li><a href="admin.html">Add Products</a></li>
+        <li><a href="inventory.html">inventory</a></li>
+        <li><a class="active" href="orders.html">payment details</a></li>
+        <li><a href="feedback.html">feedbacks</a></li>
+        <li id="lg-bag">
+          <a href="cart.html"><i class="bx bx-shopping-bag"></i></a>
+        </li>
+        <a href="#" id="close"><i class="bx bx-x"></i></a>
+        <li style="position: absolute; right: 30px" id="admin-navbar">
+          <span style="font-weight: bold; color: #11998e;">Admin Panel</span>
+          <button id="logout-btn" style="margin-left: 10px; padding: 10px 20px; border: none; border-radius: 5px; background: #ff4757; color: #fff; cursor: pointer;">Logout</button>
+        </li>
+      </ul>
+    </div>
+    <div id="mobile">
+      <a href="cart.html"><i class="bx bx-shopping-bag"></i></a>
+      <i id="bar" class="bx bx-menu"></i>
+    </div>
+  </section>
+  <br/>
+  <br/>
+  <div class="orders-container">
+    <h3>Orders & Payment Details</h3>
+    <table id="orders-table">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Name</th>
+          <th>Total</th>
+          <th>Payment Method</th>
+          <th>Payment ID</th>
+          <th>Transaction ID</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Order summary data will be inserted here -->
+      </tbody>
+    </table>
+    <h3>Order Items</h3>
+    <table id="order-items-table">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Product Name</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Order items data will be inserted here -->
+      </tbody>
+    </table>
+  </div>
+  <script>
+    // Logout functionality
+    document.getElementById('logout-btn').addEventListener('click', function() {
+      localStorage.removeItem('eshopUserName');
+      localStorage.removeItem('eshopUserRole');
+      localStorage.removeItem('eshopUserEmail');
+      window.location.href = 'login.html';
+    });
+    async function loadOrders() {
+      const ordersTbody = document.querySelector('#orders-table tbody');
+      const itemsTbody = document.querySelector('#order-items-table tbody');
+      ordersTbody.innerHTML = '<tr><td colspan="7">Loading...</td></tr>';
+      itemsTbody.innerHTML = '<tr><td colspan="4">Loading...</td></tr>';
+      try {
+        const res = await fetch('/api/orders');
+        const orders = await res.json();
+        if (!orders.length) {
+          ordersTbody.innerHTML = '<tr><td colspan="7">No orders found.</td></tr>';
+          itemsTbody.innerHTML = '<tr><td colspan="4">No items found.</td></tr>';
+          return;
+        }
+        ordersTbody.innerHTML = '';
+        itemsTbody.innerHTML = '';
+        orders.forEach(order => {
+          // Defensive: handle _id and createdAt as object or string
+          let orderId = order._id && order._id.$oid ? order._id.$oid : order._id || '';
+          let createdAt = '';
+          if (order.createdAt) {
+            if (typeof order.createdAt === 'object' && order.createdAt.$date) {
+              createdAt = new Date(order.createdAt.$date).toLocaleString();
+            } else {
+              createdAt = new Date(order.createdAt).toLocaleString();
+            }
+          }
+          // Order summary row
+          ordersTbody.innerHTML += `<tr>
+            <td>${orderId}</td>
+            <td>${order.name}</td>
+            <td>₹${Number(order.total).toLocaleString()}</td>
+            <td>${order.paymentMethod || ''}</td>
+            <td>${order.paymentId || ''}</td>
+            <td>${order.transactionId || ''}</td>
+            <td>${createdAt}</td>
+          </tr>`;
+          // Items rows
+          let itemsArr = Array.isArray(order.items) ? order.items : (order.items ? [order.items] : []);
+          itemsArr.forEach(item => {
+            itemsTbody.innerHTML += `<tr>
+              <td>${orderId}</td>
+              <td>${item.name || ''}</td>
+              <td>${item.quantity || ''}</td>
+              <td>₹${item.price !== undefined ? Number(item.price).toLocaleString() : ''}</td>
+            </tr>`;
+          });
+        });
+      } catch (err) {
+        ordersTbody.innerHTML = '<tr><td colspan="7">Failed to load orders.</td></tr>';
+        itemsTbody.innerHTML = '<tr><td colspan="4">Failed to load items.</td></tr>';
+      }
+    }
+    document.addEventListener('DOMContentLoaded', loadOrders);
+  </script>
+</body>
+</html> 

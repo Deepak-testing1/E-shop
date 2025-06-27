@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Shop</title>
+    <link rel="icon" type="image/x-icon" href="/img/icon1.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <section id="header">
+      <div>
+        <ul id="navbar">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+
+          <li><a href="contact.html">Contact</a></li>
+          <li><a class="active" href="about.html">About</a></li>
+          <li id="lg-bag">
+            <a href="cart.html"><i class="bx bx-shopping-bag"></i></a>
+          </li>
+          <a href="#" id="close"><i class="bx bx-x"></i></a>
+          <li style="position: absolute; right: 30px" id="navbar-auth">
+            <a href="signup.html">Signup</a>
+            <a href="login.html">/Login</a>
+          </li>
+        </ul>
+      </div>
+      <div id="mobile">
+        <a href="cart.html"><i class="bx bx-shopping-bag"></i></a>
+        <i id="bar" class="bx bx-menu"></i>
+      </div>
+    </section>
+
+    <section id="about-head" class="section-p1">
+      <img src="./img/about/a6.jpg" alt="" />
+      <div>
+        <h2>About Us</h2>
+        <p>
+          At E-Shop, we're passionate about bringing you quality products and a
+          seamless shopping experience. Founded with a simple goal — to make
+          online shopping easy, enjoyable, and reliable — we carefully curate a
+          wide range of items to meet your lifestyle and needs. Whether you're
+          looking for the latest trends, everyday essentials, or unique finds,
+          we're here to help you discover and shop with confidence. Our
+          commitment to customer satisfaction drives everything we do, from fast
+          shipping to responsive support. Thank you for choosing us — we're
+          excited to be part of your journey!
+        </p>
+      </div>
+    </section>
+
+    <section id="newsletter" class="section-p1 section-m1">
+      <div class="newstext">
+        <h4>Sign Up</h4>
+        <p>
+          Get E-mail updates about our latest Products and
+          <span>special offers.</span>
+        </p>
+      </div>
+      <div class="form">
+        <a href="signup.html"> <button class="normal">Sign Up</button></a>
+      </div>
+    </section>
+
+    <footer class="section-p1">
+      <div class="col">
+        <h4>Contact</h4>
+        <p>
+          <strong>Address:</strong> Gali No.06 , Street 32 , Nehru Road , Raipur
+        </p>
+        <p><strong>Phone:</strong> (+91 9845654878) / (+91) 9985647852</p>
+        <div class="follow">
+          <h4>Follow us</h4>
+          <div class="icon">
+            <i class="bx bxl-facebook"></i>
+            <i class="bx bxl-twitter"></i>
+            <i class="bx bxl-instagram"></i>
+            <i class="bx bxl-pinterest-alt"></i>
+            <i class="bx bxl-youtube"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <h4>About</h4>
+        <a href="about.html">About us</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+
+      <div class="col">
+        <h4>My Account</h4>
+        <a href="signup.html">Sign In</a>
+        <a href="cart.html">View Cart</a>
+        <a href="contact.html">Help</a>
+      </div>
+
+      <div class="col install">
+        <p>Secured Payment Gateways</p>
+        <img src="./img/pay/pay.png" alt="" />
+      </div>
+
+      <div class="copyright"></div>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+      // Navbar login state logic
+      function updateNavbarAuth() {
+        const userName = localStorage.getItem('eshopUserName');
+        const navbarAuth = document.getElementById('navbar-auth');
+        if (userName) {
+          navbarAuth.innerHTML = `
+            <span style='font-weight:bold; display: flex; align-items: center;'>
+              <i class="bx bx-user-circle" style="font-size: 1.7em; margin-right: 6px;"></i>
+              <a href="profile.html" id="profile-link" style="color: #11998e; text-decoration: none; font-weight: bold;">${userName}</a>
+            </span>
+          `;
+        } else {
+          navbarAuth.innerHTML = `<a href="signup.html">Signup</a> <a href="login.html">/Login</a>`;
+        }
+      }
+      updateNavbarAuth();
+    </script>
+  </body>
+  
+</html>

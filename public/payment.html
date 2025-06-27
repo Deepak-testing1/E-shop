@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment - E-Shop</title>
+    <link rel="icon" type="image/x-icon" href="./img/icon1.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <style>
+      body {
+        background-color: #f0f2f5;
+      }
+
+      /* Payment Page */
+      #payment-page {
+        padding: 40px;
+      }
+
+      #payment-page h2 {
+        font-size: 32px;
+        line-height: 40px;
+        color: #222;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .payment-container {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+      }
+
+      .payment-form,
+      .order-summary {
+        flex-basis: 48%;
+        min-width: 400px;
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .payment-form h3,
+      .order-summary h3 {
+        font-size: 22px;
+        margin-bottom: 20px;
+        color: #222;
+        border-bottom: 1px solid #e1e1e1;
+        padding-bottom: 15px;
+      }
+
+      .payment-options {
+        display: flex;
+        margin-bottom: 25px;
+        border-bottom: 1px solid #e1e1e1;
+        padding-bottom: 10px;
+      }
+
+      .payment-option {
+        margin-right: 20px;
+      }
+
+      .payment-option input[type="radio"] {
+        display: none;
+      }
+
+      .payment-option label {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        padding: 10px 15px;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+        font-weight: 600;
+        color: #555;
+      }
+
+      .payment-option label i {
+        margin-right: 8px;
+        font-size: 20px;
+      }
+
+      .payment-option input[type="radio"]:checked + label {
+        background-color: #e6f7ff;
+        color: #088178;
+      }
+
+      .payment-method-form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .payment-form label {
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #465b52;
+      }
+
+      .payment-form input,
+      .payment-form select {
+        margin-bottom: 20px;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        transition: border-color 0.3s;
+      }
+
+      .payment-form input:focus,
+      .payment-form select:focus {
+        border-color: #088178;
+        outline: none;
+      }
+
+      .expiry-cvv {
+        display: flex;
+        gap: 20px;
+      }
+
+      .expiry-cvv div {
+        flex: 1;
+      }
+
+      .payment-form button.normal {
+        margin-top: 10px;
+        background-image: linear-gradient(45deg, #28a745, #218838);
+        color: white;
+        border: none;
+        transition: transform 0.2s, box-shadow 0.2s;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .payment-form button.normal:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+      }
+
+      .order-summary .summary-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+      }
+
+      .order-summary .summary-item.total {
+        font-weight: bold;
+        font-size: 20px;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid #e1e1e1;
+      }
+
+      .order-summary hr {
+        border: 0;
+        border-top: 1px solid #e1e1e1;
+        margin: 20px 0;
+      }
+
+      .cart-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #f0f0f0;
+      }
+
+      .cart-item img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        margin-right: 15px;
+        border-radius: 4px;
+      }
+
+      .cart-item-details {
+        flex: 1;
+      }
+
+      .cart-item-name {
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      .cart-item-price {
+        color: #088178;
+        font-weight: 600;
+      }
+
+      .cart-item-quantity {
+        color: #666;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section id="header">
+      <div>
+        <ul id="navbar">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="about.html">About</a></li>
+          <li id="lg-bag">
+            <a href="cart.html"><i class="bx bx-shopping-bag"></i></a>
+          </li>
+          <a href="#" id="close"><i class="bx bx-x"></i></a>
+          <li style="position: absolute; right: 30px" id="navbar-auth">
+            <a href="signup.html">Signup</a>
+            <a href="login.html">/Login</a>
+          </li>
+        </ul>
+      </div>
+      <div id="mobile">
+        <a href="cart.html"><i class="bx bx-shopping-bag"></i></a>
+        <i id="bar" class="bx bx-menu"></i>
+      </div>
+    </section>
+
+    <section id="payment-page" class="section-p1">
+      <h2>Payment Details</h2>
+      <div class="payment-container">
+        <div class="payment-form">
+          <h3>Complete Payment</h3>
+          <div style="text-align: center; margin: 30px 0;">
+            <h4>Total Amount: ₹<span id="display-total">0.00</span></h4>
+            <p style="color: #666; margin: 20px 0;">Secure payment powered by Razorpay</p>
+            <button onclick="processPayment()" class="normal" style="font-size: 18px; padding: 15px 40px;">
+              <i class="bx bx-credit-card" style="margin-right: 10px;"></i>
+              Pay Now
+            </button>
+          </div>
+          <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-top: 20px;">
+            <h5 style="margin-bottom: 15px; color: #333;">Razorpay Test Mode:</h5>
+            <ul style="color: #666; line-height: 1.6;">
+              <li><strong>Test Card:</strong> 4111 1111 1111 1111</li>
+              <li><strong>Expiry:</strong> Any future date</li>
+              <li><strong>CVV:</strong> Any 3 digits</li>
+              <li><strong>Test UPI:</strong> success@razorpay</li>
+              <li><strong>No real money will be charged</strong></li>
+            </ul>
+          </div>
+        </div>
+        <div class="order-summary">
+          <h3>Order Summary</h3>
+          <div id="order-items">
+            <!-- Cart items will be dynamically inserted here -->
+          </div>
+          <hr />
+          <div class="summary-item">
+            <span>Subtotal</span>
+            <span id="subtotal-amount">₹0.00</span>
+          </div>
+          <div class="summary-item">
+            <span>Shipping</span>
+            <span>Free</span>
+          </div>
+          <div class="summary-item total">
+            <span>Total</span>
+            <span id="total-amount">₹0.00</span>
+          </div>
+        </div>
+        <div class="latest-cart-list" style="margin-top: 40px; display: none;">
+          <h3 style="display: none;">Latest Cart Items</h3>
+          <div id="latest-cart-items">
+            <!-- Latest cart items will be dynamically inserted here -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Always update cart and summary on page load and when navigating back/forward
+      function renderCartAndSummary() {
+        const cart = JSON.parse(localStorage.getItem("eshop_cart_items")) || [];
+        const orderItemsContainer = document.getElementById("order-items");
+
+        // Clear previous content
+        if (orderItemsContainer) orderItemsContainer.innerHTML = "";
+
+        if (cart.length === 0) {
+          if (orderItemsContainer) orderItemsContainer.innerHTML = "<p>Your cart is empty</p>";
+        } else {
+          cart.forEach((item) => {
+            const itemElement = document.createElement("div");
+            itemElement.className = "cart-item";
+            itemElement.innerHTML = `
+              <img src="${item.image}" alt="${item.name}" />
+              <div class="cart-item-details">
+                <div class="cart-item-name">${item.name}</div>
+                <div class="cart-item-quantity">Qty: ${item.quantity}</div>
+              </div>
+              <div class="cart-item-price">₹${(item.price * item.quantity).toLocaleString()}</div>
+            `;
+            if (orderItemsContainer) orderItemsContainer.appendChild(itemElement);
+          });
+        }
+
+        // Read amounts from localStorage
+        const subtotalFromStorage = localStorage.getItem("eshop_subtotal") || "0.00";
+        const delivery = localStorage.getItem("eshop_delivery") || "0.00";
+        const totalFromStorage = localStorage.getItem("eshop_total") || "0.00";
+
+        document.getElementById("subtotal-amount").textContent = `₹${Number(subtotalFromStorage).toLocaleString(undefined, {maximumFractionDigits: 2})}`;
+        // Find the shipping/delivery row robustly
+        const summaryItems = document.querySelectorAll('.order-summary .summary-item');
+        let deliveryLabel = null;
+        let deliveryValue = null;
+        summaryItems.forEach(item => {
+          const spans = item.querySelectorAll('span');
+          if (spans.length === 2 && (spans[0].textContent.trim().toLowerCase() === 'shipping' || spans[0].textContent.trim().toLowerCase() === 'delivery')) {
+            deliveryLabel = spans[0];
+            deliveryValue = spans[1];
+          }
+        });
+        if (deliveryLabel) deliveryLabel.textContent = "Delivery & Tax";
+        if (deliveryValue) deliveryValue.textContent = `₹${Number(delivery).toLocaleString(undefined, {maximumFractionDigits: 2})}`;
+        document.getElementById("total-amount").textContent = `₹${Number(totalFromStorage).toLocaleString(undefined, {maximumFractionDigits: 2})}`;
+        document.getElementById("display-total").textContent = Number(totalFromStorage).toLocaleString(undefined, {maximumFractionDigits: 2});
+      }
+
+      // Fetch latest cart data from backend and show below order summary
+      async function renderLatestCart() {
+        const latestCartContainer = document.getElementById('latest-cart-items');
+        if (latestCartContainer) latestCartContainer.innerHTML = '';
+        try {
+          const res = await fetch('/api/cart?user=guest');
+          const cart = await res.json();
+          if (!cart.length) {
+            latestCartContainer.innerHTML = '<p>Your cart is empty</p>';
+            return;
+          }
+          cart.forEach((item) => {
+            const itemElement = document.createElement('div');
+            itemElement.className = 'cart-item';
+            itemElement.innerHTML = `
+              <img src="${item.image}" alt="${item.name}" />
+              <div class="cart-item-details">
+                <div class="cart-item-name">${item.name}</div>
+                <div class="cart-item-quantity">Qty: ${item.quantity}</div>
+              </div>
+              <div class="cart-item-price">₹${(item.price * item.quantity).toLocaleString()}</div>
+            `;
+            latestCartContainer.appendChild(itemElement);
+          });
+        } catch (err) {
+          latestCartContainer.innerHTML = '<p>Failed to load latest cart data.</p>';
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function() {
+        renderCartAndSummary();
+        renderLatestCart();
+      });
+      window.addEventListener("pageshow", function() {
+        renderCartAndSummary();
+        renderLatestCart();
+      });
+
+      // Razorpay payment function
+      function processPayment() {
+        const total = Number(localStorage.getItem('eshop_total')) || 0;
+        console.log('Processing payment for total:', total);
+        
+        if (!total || parseFloat(total) <= 0) {
+          alert("Invalid amount for payment!");
+          return;
+        }
+
+        const amount = parseFloat(total);
+        console.log('Amount to send:', amount);
+
+        // Create order on your backend
+        fetch('/api/create-order', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ amount: amount })
+        })
+        .then(res => {
+          console.log('Response status:', res.status);
+          if (!res.ok) {
+            throw new Error(`HTTP error! status: ${res.status}`);
+          }
+          return res.json();
+        })
+        .then(order => {
+          console.log('Order response:', order);
+          
+          if (order.error) {
+            console.error('Order creation error:', order.error);
+            alert('Failed to create payment order: ' + order.error);
+            return;
+          }
+
+          // Initialize Razorpay checkout
+          const options = {
+            key: 'rzp_test_OhPudikJuCcT72', // Your real test key
+            amount: order.amount,
+            currency: order.currency,
+            name: 'Your E-Shop',
+            description: 'Payment for your order',
+            order_id: order.id,
+            handler: async function(response) {
+              console.log('Payment response:', response);
+              // Verify payment on backend
+              fetch('/api/verify-payment', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  razorpay_order_id: response.razorpay_order_id,
+                  razorpay_payment_id: response.razorpay_payment_id,
+                  razorpay_signature: response.razorpay_signature
+                })
+              })
+              .then(async res => {
+                const verification = await res.json();
+                console.log('Verification response:', verification);
+                if (verification.verified) {
+                  // Prepare order data
+                  const userName = localStorage.getItem('eshopUserName') || 'Guest';
+                  const userEmail = localStorage.getItem('eshopUserEmail') || 'guest@example.com';
+                  const cartItems = JSON.parse(localStorage.getItem('eshop_cart_items')) || [];
+                  const total = localStorage.getItem('eshop_total') || 0;
+                  const paymentMethod = 'Razorpay';
+                  const paymentId = response.razorpay_payment_id || '';
+                  const transactionId = response.razorpay_order_id || '';
+                
+                  try {
+                    await fetch('/api/orders', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({
+                        name: userName,
+                        email: userEmail,
+                        items: cartItems,
+                        total: total,
+                        paymentMethod: paymentMethod,
+                        paymentId: paymentId,
+                        transactionId: transactionId
+                      })
+                    });
+                  } catch (err) {
+                    // Optionally handle order save error
+                  }
+                 // alert('Payment successful! Payment ID: ' + response.razorpay_payment_id);
+                  // Clear cart and redirect
+                  localStorage.removeItem("eshop_cart_items");
+                  localStorage.removeItem("eshop_subtotal");
+                  localStorage.removeItem("eshop_delivery");
+                  localStorage.removeItem("eshop_total");
+                  window.location.href = "index.html";
+                } else {
+                  alert('Payment verification failed!');
+                }
+              })
+              .catch(error => {
+                console.error('Verification error:', error);
+                alert('Payment verification failed!');
+              });
+            },
+            prefill: {
+              name: 'Test Customer',
+              email: 'test@example.com',
+              contact: '9999999999'
+            },
+            theme: {
+              color: '#11998e'
+            },
+            modal: {
+              ondismiss: function() {
+                console.log('Payment modal closed');
+              }
+            }
+          };
+
+          console.log('Razorpay options:', options);
+          const rzp = new Razorpay(options);
+          rzp.open();
+        })
+        .catch(error => {
+          console.error('Error creating order:', error);
+          alert('Failed to create payment order: ' + error.message);
+        });
+      }
+
+      // Navbar login state logic
+      function updateNavbarAuth() {
+        const userName = localStorage.getItem('eshopUserName');
+        const navbarAuth = document.getElementById('navbar-auth');
+        if (userName) {
+          navbarAuth.innerHTML = `
+            <span style='font-weight:bold; display: flex; align-items: center;'>
+              <i class="bx bx-user-circle" style="font-size: 1.7em; margin-right: 6px;"></i>
+              <a href="profile.html" id="profile-link" style="color: #11998e; text-decoration: none; font-weight: bold;">${userName}</a>
+            </span>
+          `;
+        } else {
+          navbarAuth.innerHTML = `<a href="signup.html">Signup</a> <a href="login.html">/Login</a>`;
+        }
+      }
+      updateNavbarAuth();
+    </script>
+  </body>
+</html>

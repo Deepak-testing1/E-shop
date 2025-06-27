@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Inventory - Product Categories</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+      font-family: 'Spartan', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .inventory-container {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(56, 239, 125, 0.10), 0 1.5px 8px rgba(0,0,0,0.07);
+      padding: 2.5rem 2.5rem 2rem 2.5rem;
+      max-width: 600px;
+      width: 100%;
+      margin: 3rem auto;
+      text-align: center;
+    }
+    h3 {
+      color: #11998e;
+      margin-bottom: 2rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+    }
+    th, td {
+      padding: 14px 10px;
+      border: 1px solid #e1e1e1;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+    th {
+      background: #e0eafc;
+      color: #11998e;
+    }
+    tr:nth-child(even) {
+      background: #f8f9fa;
+    }
+  </style>
+</head>
+<body>
+  <section id="header" style="padding: 30px;">
+    <div>
+      <ul id="navbar">
+        <li><a  href="admin.html">Add Products</a></li>
+        <li><a class="active" href="inventory.html">inventory</a></li>
+        <li><a  href="orders.html">orders</a></li>
+        <li><a href="feedback.html">feedbacks</a></li>
+        <li id="lg-bag">
+          <a href="cart.html"><i class="bx bx-shopping-bag"></i></a>
+        </li>
+        <a href="#" id="close"><i class="bx bx-x"></i></a>
+        <li style="position: absolute; right: 30px" id="admin-navbar">
+          <span style="font-weight: bold; color: #11998e;">Admin Panel</span>
+          <button id="logout-btn" style="margin-left: 10px; padding: 10px 20px; border: none; border-radius: 5px; background: #ff4757; color: #fff; cursor: pointer;">Logout</button>
+        </li>
+      </ul>
+    </div>
+    <div id="mobile">
+      <a href="cart.html"><i class="bx bx-shopping-bag"></i></a>
+      <i id="bar" class="bx bx-menu"></i>
+    </div>
+  </section>
+  <br/>
+  <br/>
+  <div class="inventory-container">
+    <h3>Inventory by Category</h3>
+    <table id="inventory-table">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Total Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Data will be inserted here -->
+      </tbody>
+    </table>
+  </div>
+  <script>
+      document.getElementById('logout-btn').addEventListener('click', function() {
+      localStorage.removeItem('eshopUserName');
+      localStorage.removeItem('eshopUserRole');
+      localStorage.removeItem('eshopUserEmail');
+      window.location.href = 'login.html';
+    });
+    async function loadInventory() {
+      const tbody = document.querySelector('#inventory-table tbody');
+      tbody.innerHTML = '<tr><td colspan="2">Loading...</td></tr>';
+      try {
+        const res = await fetch('/api/products');
+        const products = await res.json();
+        if (!products.length) {
+          tbody.innerHTML = '<tr><td colspan="2">No products found.</td></tr>';
+          return;
+        }
+        // Group and sum quantities by category
+        const categoryMap = {};
+        products.forEach(p => {
+          const cat = p.category || 'Other';
+          const qty = p.quantity || 1; // fallback to 1 if no quantity field
+          if (!categoryMap[cat]) categoryMap[cat] = 0;
+          categoryMap[cat] += qty;
+        });
+        tbody.innerHTML = '';
+        Object.entries(categoryMap).forEach(([cat, qty]) => {
+          tbody.innerHTML += `<tr><td>${cat}</td><td>${qty}</td></tr>`;
+        });
+      } catch (err) {
+        tbody.innerHTML = '<tr><td colspan="2">Failed to load inventory.</td></tr>';
+      }
+    }
+    document.addEventListener('DOMContentLoaded', loadInventory);
+  </script>
+</body>
+</html> 

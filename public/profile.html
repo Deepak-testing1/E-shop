@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>User Profile</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
+  <style>
+    body {
+      background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+      font-family: 'Spartan', sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+
+    /* Navbar Styles - Matching index page */
+    #header {
+      display: flex;
+      align-items: right;
+      justify-content: space-between;
+      padding: 20px 60px;
+      background: #e3e6f3;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    #navbar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #navbar li {
+      list-style: none;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    #navbar li a {
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      color: #1a1a1a;
+      transition: 0.3s ease;
+    }
+
+    #navbar li a:hover,
+    #navbar li a.active {
+      color: #088178;
+    }
+
+    #navbar li a.active::after,
+    #navbar li a:hover::after {
+      content: "";
+      width: 30%;
+      height: 2px;
+      background: #088178;
+      position: absolute;
+      bottom: -4px;
+      left: 20px;
+    }
+
+    #mobile {
+      display: none;
+      align-items: center;
+    }
+
+    #close {
+      display: none;
+    }
+
+    .logout-btn {
+      background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+    }
+
+    .logout-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+    }
+
+    /* Main Content */
+    .main-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 120px 20px 40px 20px;
+    }
+
+    .profile-section {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      padding: 40px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .profile-header {
+      margin-bottom: 30px;
+    }
+
+    .profile-icon {
+      display: none;
+    }
+
+    .profile-picture-container {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 20px auto;
+      border-radius: 50%;
+      background: #f1f5f8;
+      border: 4px solid #fff;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    #profile-picture-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .profile-default-icon {
+      font-size: 8em;
+      color: #cbd5e0;
+    }
+
+    .edit-profile-picture-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 8px 20px;
+      background: #e3e6f3;
+      color: #333;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.9em;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .edit-profile-picture-btn:hover {
+      background: #d1d9e6;
+      transform: translateY(-2px);
+    }
+
+    .edit-profile-picture-btn i {
+      margin-right: 5px;
+    }
+
+    .password-section {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      padding: 40px;
+      margin-top: 30px;
+    }
+
+    .change-password-form {
+      max-width: 400px;
+      margin: 0 auto;
+      display: grid;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      color: #666;
+      font-size: 0.9em;
+      margin-bottom: 8px;
+    }
+
+    .form-group input {
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+
+    .btn-submit {
+      background: linear-gradient(45deg, #11998e, #38ef7d);
+      color: white;
+      border: none;
+      padding: 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1em;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(56, 239, 125, 0.3);
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(56, 239, 125, 0.4);
+    }
+
+    .profile-title {
+      font-size: 2.5em;
+      color: #333;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .profile-subtitle {
+      color: #666;
+      font-size: 1.1em;
+    }
+
+    .profile-info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .profile-info-card {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      padding: 25px;
+      border-radius: 15px;
+      border-left: 4px solid #11998e;
+    }
+
+    .profile-label {
+      color: #666;
+      font-size: 0.9em;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .profile-value {
+      color: #333;
+      font-size: 1.3em;
+      font-weight: 600;
+    }
+
+    /* Order History Section */
+    .orders-section {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      padding: 40px;
+    }
+
+    .section-title {
+      font-size: 2em;
+      color: #333;
+      margin-bottom: 30px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .order-card {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border-radius: 15px;
+      padding: 25px;
+      margin-bottom: 20px;
+      border-left: 4px solid #11998e;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .order-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+
+    .order-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .order-id {
+      font-weight: 600;
+      color: #11998e;
+      font-size: 1.1em;
+    }
+
+    .order-date {
+      color: #666;
+      font-size: 0.9em;
+    }
+
+    .order-amount {
+      font-size: 1.3em;
+      font-weight: 700;
+      color: #28a745;
+    }
+
+    .order-items {
+      margin-top: 15px;
+    }
+
+    .order-item {
+      display: flex;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .order-item:last-child {
+      border-bottom: none;
+    }
+
+    .order-item img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-right: 15px;
+    }
+
+    .order-item-details {
+      flex: 1;
+    }
+
+    .order-item-name {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    .order-item-price {
+      color: #666;
+      font-size: 0.9em;
+    }
+
+    .order-item-quantity {
+      color: #11998e;
+      font-weight: 600;
+    }
+
+    .no-orders {
+      text-align: center;
+      padding: 60px 20px;
+      color: #666;
+    }
+
+    .no-orders i {
+      font-size: 4em;
+      color: #ddd;
+      margin-bottom: 20px;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 40px;
+      color: #666;
+    }
+
+    .loading i {
+      font-size: 2em;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      #navbar {
+        padding: 0 20px;
+      }
+      
+      .profile-info-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .order-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      
+      .main-container {
+        padding: 20px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <section id="header">
+    <div>
+      <ul id="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="about.html">About</a></li>
+        <li id="lg-bag">
+          <a href="cart.html"><i class="bx bx-shopping-bag"></i></a>
+        </li>
+        <a href="#" id="close"><i class="bx bx-x"></i></a>
+        <li style="position: absolute; right: 30px">
+          <button class="logout-btn" id="logout-btn">
+            <i class="bx bx-log-out"></i> Logout
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div id="mobile">
+      <a href="cart.html"><i class="bx bx-shopping-bag"></i></a>
+      <i id="bar" class="bx bx-menu"></i>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="main-container">
+    <!-- Profile Section -->
+    <div class="profile-section">
+      <div class="profile-header">
+        <div class="profile-picture-container">
+          <i class='bx bxs-user-circle profile-default-icon'></i>
+          <img src="" alt="Profile Picture" id="profile-picture-img">
+        </div>
+        <label for="profile-picture-input" class="edit-profile-picture-btn">
+          <i class='bx bx-camera'></i> Change Photo
+        </label>
+        <input type="file" id="profile-picture-input" accept="image/*" style="display: none;">
+        <h1 class="profile-title">My Profile</h1>
+        <p class="profile-subtitle">Welcome back! Here's your account information</p>
+      </div>
+      
+      <div class="profile-info-grid">
+        <div class="profile-info-card">
+          <div class="profile-label">Full Name</div>
+          <div class="profile-value" id="profile-name">Loading...</div>
+        </div>
+        <div class="profile-info-card">
+          <div class="profile-label">Email Address</div>
+          <div class="profile-value" id="profile-email">Loading...</div>
+        </div>
+        <div class="profile-info-card">
+          <div class="profile-label">Account Status</div>
+          <div class="profile-value" style="color: #28a745;">Active</div>
+        </div>
+        <div class="profile-info-card">
+          <div class="profile-label">Member Since</div>
+          <div class="profile-value" id="member-since">Today</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Change Password Section -->
+    <div class="password-section">
+      <h2 class="section-title">
+        <i class="bx bx-lock-alt"></i> Change Password
+      </h2>
+      <form id="change-password-form" class="change-password-form">
+        <div class="form-group">
+          <label for="current-password">Current Password</label>
+          <input type="password" id="current-password" required>
+        </div>
+        <div class="form-group">
+          <label for="new-password">New Password</label>
+          <input type="password" id="new-password" required>
+        </div>
+        <div class="form-group">
+          <label for="confirm-password">Confirm New Password</label>
+          <input type="password" id="confirm-password" required>
+        </div>
+        <button type="submit" class="btn-submit">Change Password</button>
+      </form>
+    </div>
+<br/>
+<br/>
+<br/>
+    <!-- Order History Section -->
+    <div class="orders-section">
+      <h2 class="section-title">
+        <i class="bx bx-package"></i> Order History
+      </h2>
+      <div id="orders-container">
+        <div class="loading">
+          <i class="bx bx-loader-alt"></i>
+          <p>Loading your orders...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Check if user is logged in
+    const name = localStorage.getItem('eshopUserName');
+    const email = localStorage.getItem('eshopUserEmail');
+    
+    if (!name) {
+      window.location.href = 'login.html';
+    } else {
+      // Update profile information
+      document.getElementById('profile-name').textContent = name;
+      document.getElementById('profile-email').textContent = email || 'Not available';
+      
+      // Set member since date (you can store this in localStorage during signup)
+      const memberSince = localStorage.getItem('eshopMemberSince') || new Date().toLocaleDateString();
+      document.getElementById('member-since').textContent = memberSince;
+    }
+
+    // Logout functionality
+    document.getElementById('logout-btn').onclick = function() {
+      localStorage.removeItem('eshopUserName');
+      localStorage.removeItem('eshopUserEmail');
+      localStorage.removeItem('eshopMemberSince');
+      // Also remove profile picture from local storage
+      localStorage.removeItem('eshopUserProfilePic');
+      window.location.href = 'index.html';
+    };
+
+    // --- Profile Picture Functionality ---
+    const profilePictureInput = document.getElementById('profile-picture-input');
+    const profilePictureImg = document.getElementById('profile-picture-img');
+    const profileDefaultIcon = document.querySelector('.profile-default-icon');
+
+    function updateProfilePicDisplay(hasImage) {
+      profilePictureImg.style.display = hasImage ? 'block' : 'none';
+      profileDefaultIcon.style.display = hasImage ? 'none' : 'block';
+    }
+
+    // Load profile picture from local storage if it exists
+    const savedPic = localStorage.getItem('eshopUserProfilePic');
+    if (savedPic) {
+      profilePictureImg.src = savedPic;
+      updateProfilePicDisplay(true);
+    } else {
+      updateProfilePicDisplay(false);
+    }
+
+    profilePictureInput.addEventListener('change', (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const newPicSrc = e.target.result;
+          profilePictureImg.src = newPicSrc;
+          // Save to local storage as a base64 string
+          localStorage.setItem('eshopUserProfilePic', newPicSrc);
+          updateProfilePicDisplay(true);
+          alert('Profile picture updated! This is saved in your browser, but a real app would upload it to a server.');
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // --- Change Password Functionality ---
+    const changePasswordForm = document.getElementById('change-password-form');
+    changePasswordForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      
+      const currentPassword = document.getElementById('current-password').value;
+      const newPassword = document.getElementById('new-password').value;
+      const confirmPassword = document.getElementById('confirm-password').value;
+
+      if (newPassword !== confirmPassword) {
+        alert('New password and confirmation do not match.');
+        return;
+      }
+
+      if (newPassword.length < 6) {
+        alert('Password must be at least 6 characters long.');
+        return;
+      }
+
+      // In a real application, you would send this to a secure backend endpoint
+      // For demonstration, we'll simulate the process.
+      console.log({
+        email: localStorage.getItem('eshopUserEmail'),
+        currentPassword,
+        newPassword
+      });
+
+      alert('Password change functionality is for demonstration. In a real app, this would be a secure request to the server.');
+      
+      // try {
+      //   const response = await fetch('/api/change-password', {
+      //     method: 'POST',
+      //     headers: { 'Content-Type': 'application/json' },
+      //     body: JSON.stringify({ 
+      //       email: localStorage.getItem('eshopUserEmail'),
+      //       currentPassword,
+      //       newPassword 
+      //     })
+      //   });
+      //   const result = await response.json();
+      //   if (response.ok) {
+      //     alert('Password changed successfully!');
+      //     changePasswordForm.reset();
+      //   } else {
+      //     alert(`Error: ${result.message}`);
+      //   }
+      // } catch (error) {
+      //   console.error('Password change error:', error);
+      //   alert('An error occurred while changing the password. Please try again.');
+      // }
+    });
+
+    // Load order history
+    async function loadOrderHistory() {
+      const ordersContainer = document.getElementById('orders-container');
+      const userEmail = localStorage.getItem('eshopUserEmail');
+      
+      if (!userEmail) {
+        ordersContainer.innerHTML = `
+          <div class="no-orders">
+            <i class="bx bx-error-circle"></i>
+            <p>Unable to load orders. Please log in again.</p>
+          </div>
+        `;
+        return;
+      }
+
+      try {
+        const response = await fetch(`/api/orders?email=${encodeURIComponent(userEmail)}`);
+        const orders = await response.json();
+
+        if (!orders || orders.length === 0) {
+          ordersContainer.innerHTML = `
+            <div class="no-orders">
+              <i class="bx bx-package"></i>
+              <h3>No Orders Yet</h3>
+              <p>You haven't placed any orders yet. Start shopping to see your order history here!</p>
+              <a href="shop.html" style="color: #11998e; text-decoration: none; font-weight: 600; margin-top: 20px; display: inline-block;">
+                <i class="bx bx-shopping-bag"></i> Start Shopping
+              </a>
+            </div>
+          `;
+        } else {
+          ordersContainer.innerHTML = orders.map(order => {
+            const orderDate = new Date(order.createdAt).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+              hour: '2-digit',
+              minute: '2-digit'
+            });
+
+            const items = Array.isArray(order.items) ? order.items : [order.items];
+            
+            return `
+              <div class="order-card">
+                <div class="order-header">
+                  <div>
+                    <div class="order-id">Order #${order._id ? order._id.slice(-8) : 'N/A'}</div>
+                    <div class="order-date">${orderDate}</div>
+                  </div>
+                  <div class="order-amount">₹${Number(order.total).toLocaleString()}</div>
+                </div>
+                <div class="order-items">
+                  ${items.map(item => `
+                    <div class="order-item">
+                      <img src="${item.image}" alt="${item.name}" />
+                      <div class="order-item-details">
+                        <div class="order-item-name">${item.name}</div>
+                        <div class="order-item-price">₹${Number(item.price).toLocaleString()} × ${item.quantity}</div>
+                      </div>
+                      <div class="order-item-quantity">Qty: ${item.quantity}</div>
+                    </div>
+                  `).join('')}
+                </div>
+                ${order.paymentMethod ? `
+                  <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #e0e0e0; color: #666; font-size: 0.9em;">
+                    <strong>Payment:</strong> ${order.paymentMethod}
+                    ${order.paymentId ? ` (ID: ${order.paymentId.slice(-8)})` : ''}
+                  </div>
+                ` : ''}
+              </div>
+            `;
+          }).join('');
+        }
+      } catch (error) {
+        console.error('Error loading orders:', error);
+        ordersContainer.innerHTML = `
+          <div class="no-orders">
+            <i class="bx bx-error-circle"></i>
+            <h3>Error Loading Orders</h3>
+            <p>Unable to load your order history. Please try again later.</p>
+          </div>
+        `;
+      }
+    }
+
+    // Load orders when page loads
+    document.addEventListener('DOMContentLoaded', loadOrderHistory);
+  </script>
+</body>
+</html> 

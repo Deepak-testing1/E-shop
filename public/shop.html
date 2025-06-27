@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Shop</title>
+    <link rel="icon" type="image/x-icon" href="/img/icon1.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <section id="header">
+      <div>
+        <ul id="navbar">
+          <li><a href="index.html">Home</a></li>
+          <li><a class="active" href="shop.html">Shop</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="about.html">About</a></li>
+          <li id="lg-bag">
+            <a href="cart.html"><i class="bx bx-shopping-bag"></i></a>
+          </li>
+          <a href="#" id="close"><i class="bx bx-x"></i></a>
+          <li style="position: absolute; right: 30px" id="navbar-auth">
+            <a href="signup.html">Signup</a>
+            <a href="login.html">/Login</a>
+          </li>
+        </ul>
+      </div>
+      <div id="mobile">
+        <a href="cart.html"><i class="bx bx-shopping-bag"></i></a>
+        <i id="bar" class="bx bx-menu"></i>
+      </div>
+    </section>
+
+    <!-- Product Search Bar -->
+    <div style="width: 100%; display: flex; justify-content: flex-end;padding-right:50px;padding-top: 20px; margin: 20px 0 0 0;">
+      <input id="product-search" type="text" placeholder="Search products"  style="padding: 10px; width: 300px; border-radius: 20px; border: 1px solid #ccc; font-size: 0.8rem; margin-left: 10px;" />
+    </div>
+
+    <h1
+      style="
+        font-size: 30px;
+        font-weight: bold;
+        text-align: left;
+        margin-left: 50px;
+        margin-top: 20px;
+      "
+    >
+    </h1>
+    <section id="product1" class="section-p1">
+      <div class="pro-container">
+        <!-- Products will be loaded here dynamically -->
+      </div>
+    </section>
+
+    <section id="newsletter" class="section-p1 section-m1">
+      <div class="newstext">
+        <h4>Sign Up</h4>
+        <p>
+          Get E-mail updates about our latest Products and
+          <span>special offers.</span>
+        </p>
+      </div>
+      <div class="form">
+        <button class="normal">Sign Up</button>
+      </div>
+    </section>
+
+    <footer class="section-p1">
+      <div class="col">
+        <h4>Contact</h4>
+        <p>
+          <strong>Address:</strong> Gali No.06 , Street 32 , Nehru Road , Raipur
+        </p>
+        <p><strong>Phone:</strong> (+91 9845654878) / (+91) 9985647852</p>
+        <div class="follow">
+          <h4>Follow us</h4>
+          <div class="icon">
+            <i class="bx bxl-facebook"></i>
+            <i class="bx bxl-twitter"></i>
+            <i class="bx bxl-instagram"></i>
+            <i class="bx bxl-pinterest-alt"></i>
+            <i class="bx bxl-youtube"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <h4>About</h4>
+        <a href="#">About us</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Contact Us</a>
+      </div>
+
+      <div class="col">
+        <h4>My Account</h4>
+        <a href="#">Sign In</a>
+        <a href="cart.html">View Cart</a>
+        <a href="#">Help</a>
+      </div>
+
+      <div class="col install">
+        <p>Secured Payment Gateways</p>
+        <img src="./img/pay/pay.png" alt="" />
+      </div>
+
+      <div class="copyright"></div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      async function loadProducts(filter = "") {
+        try {
+          const res = await fetch('/api/products');
+          const products = await res.json();
+          const container = document.querySelector('.pro-container');
+          container.innerHTML = '';
+
+          if (!products.length) {
+            container.innerHTML = '<p style="color:red;text-align:center;">No products found.</p>';
+            return;
+          }
+
+          // Filter products if filter is provided
+          const filtered = filter
+            ? products.filter(product =>
+                product.name.toLowerCase().includes(filter.toLowerCase()) ||
+                product.description.toLowerCase().includes(filter.toLowerCase())
+              )
+            : products;
+
+          if (!filtered.length) {
+            container.innerHTML = '<p style="color:red;text-align:center;">No products match your search.</p>';
+            return;
+          }
+
+          // Group products by category
+          const grouped = {};
+          filtered.forEach(product => {
+            const cat = product.category || "Other";
+            if (!grouped[cat]) grouped[cat] = [];
+            grouped[cat].push(product);
+          });
+
+          // Render each category and its products
+          Object.keys(grouped).forEach(category => {
+            // Category heading
+            const heading = document.createElement('h3');
+            heading.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+            heading.style.margin = "30px 0 10px 0";
+            container.appendChild(heading);
+
+            // Products grid for this category
+            const catDiv = document.createElement('div');
+            catDiv.className = 'category-products';
+            catDiv.style.display = 'flex';
+            catDiv.style.flexWrap = 'wrap';
+            catDiv.style.gap = '20px';
+
+            grouped[category].forEach(product => {
+              const productHTML = `
+                <div class="pro">
+                  <img class="shirt" src="${product.image}" alt="${product.name}" />
+                  <div class="des">
+                    <span>${product.description}</span>
+                    <h5>${product.name}</h5>
+                    <div class="price-row">
+                      <h4>₹${Number(product.price).toLocaleString()}</h4>
+                    </div>
+                    <div class="actions actions-below">
+                      <button class="buy-btn">Buy</button>
+                      <a href="#" class="add-to-cart"
+                         data-name="${encodeURIComponent(product.name)}"
+                         data-price="${product.price}"
+                         data-image="${encodeURIComponent(product.image)}"
+                         data-description="${encodeURIComponent(product.description)}">
+                        <i class="fa-solid fa-cart-shopping" style="background-color: #11998e; color: white; padding: 10px; border-radius: 50%; font-size: 14px;"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              `;
+              catDiv.innerHTML += productHTML;
+            });
+
+            container.appendChild(catDiv);
+          });
+        } catch (err) {
+          document.querySelector('.pro-container').innerHTML = '<p style="color:red;text-align:center;">Error loading products.</p>';
+          console.error(err);
+        }
+      }
+      loadProducts();
+
+      // Add search event
+      document.getElementById('product-search').addEventListener('input', function(e) {
+        loadProducts(e.target.value);
+      });
+
+      // Navbar login state logic
+      function updateNavbarAuth() {
+        const userName = localStorage.getItem('eshopUserName');
+        const navbarAuth = document.getElementById('navbar-auth');
+        if (userName) {
+          navbarAuth.innerHTML = `
+            <span style='font-weight:bold; display: flex; align-items: center;'>
+              <i class="bx bx-user-circle" style="font-size: 1.7em; margin-right: 6px;"></i>
+              <a href="profile.html" id="profile-link" style="color: #11998e; text-decoration: none; font-weight: bold;">${userName}</a>
+            </span>
+          `;
+        } else {
+          navbarAuth.innerHTML = `<a href='signup.html'>Signup</a> <a href='login.html'>/Login</a>`;
+        }
+      }
+      updateNavbarAuth();
+
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('.pro-container').addEventListener('click', async function(e) {
+          if (e.target.classList.contains('buy-btn')) {
+            if (!localStorage.getItem('eshopUserName')) {
+              window.location.href = 'login.html';
+            } else {
+              window.location.href = 'cart.html';
+            }
+          }
+          if (e.target.closest('.add-to-cart')) {
+            e.preventDefault();
+            // Always use a generic user value, e.g., 'guest'
+            const user = 'guest';
+            const cartLink = e.target.closest('.add-to-cart');
+            const name = decodeURIComponent(cartLink.getAttribute('data-name'));
+            const price = Number(cartLink.getAttribute('data-price'));
+            const image = decodeURIComponent(cartLink.getAttribute('data-image'));
+            const description = decodeURIComponent(cartLink.getAttribute('data-description'));
+            // Send to backend
+            const res = await fetch('/api/cart', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ user, name, price, image, description })
+            });
+            if (res.ok) {
+              window.location.href = 'cart.html';
+            }
+          }
+        });
+      });
+    </script>
+    <style>
+      .price-row {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+      }
+
+      .actions-below {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 18px;
+        margin-top: 8px;
+      }
+
+      .buy-btn {
+        background: linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
+        color: #fff;
+        border: none;
+        border-radius: 20px;
+        padding: 6px 14px;
+        font-weight: bold;
+        font-size: 1rem;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(56, 239, 125, 0.1);
+        transition: background 0.3s, transform 0.2s;
+      }
+
+      .add-to-cart .cart {
+        background: #e8f6ea;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        padding: 16px;
+        font-size: 2.5rem;
+        color: #000;
+        margin-left: 0;
+        transition: background 0.2s;
+      }
+
+      .add-to-cart .cart:hover {
+        background: #b2f7cc;
+      }
+
+      /* Fix for product card and image sizing */
+      .pro {
+        max-width: 240px;
+        min-width: 200px;
+        width: 100%;
+        box-sizing: border-box;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        padding: 16px 12px 18px 12px;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .pro img {
+        width: 100%;
+        height: auto;
+        max-height: 180px;
+        object-fit: contain;
+        display: block;
+        margin: 0 auto 10px auto;
+      }
+    </style>
+    <script>
+    function renderCart() {
+      const cart = JSON.parse(localStorage.getItem('eshopCart') || '[]');
+      const tbody = document.querySelector('#cart tbody');
+      const emptyCartSection = document.getElementById('empty-cart');
+      const cartSection = document.getElementById('cart');
+      const subtotalTable = document.querySelector('#subtotal table');
+      let total = 0;
+
+      tbody.innerHTML = '';
+      subtotalTable.innerHTML = '';
+
+      if (!cart.length) {
+        cartSection.style.display = 'none';
+        emptyCartSection.style.display = '';
+        return;
+      } else {
+        cartSection.style.display = '';
+        emptyCartSection.style.display = 'none';
+      }
+
+      cart.forEach((item, idx) => {
+        const itemSubtotal = item.price * item.quantity;
+        total += itemSubtotal;
+        tbody.innerHTML += `
+          <tr>
+            <td><span class="remove-item" data-index="${idx}" style="cursor:pointer;">&times;</span></td>
+            <td><img src="${item.image}" alt="${item.name}" /></td>
+            <td>${item.name}</td>
+            <td>₹${Number(item.price).toLocaleString()}</td>
+            <td>
+              <input type="number" min="1" value="${item.quantity}" class="quantity-input" data-index="${idx}" style="width:50px;" />
+            </td>
+            <td>₹${Number(itemSubtotal).toLocaleString()}</td>
+          </tr>
+        `;
+      });
+
+      subtotalTable.innerHTML = `
+        <tr>
+          <td>Subtotal</td>
+          <td>₹${Number(total).toLocaleString()}</td>
+        </tr>
+        <tr>
+          <td>Total</td>
+          <td>₹${Number(total).toLocaleString()}</td>
+        </tr>
+      `;
+    }
+
+    // Remove item and update quantity logic
+    document.addEventListener('DOMContentLoaded', function() {
+      renderCart();
+
+      // Remove item
+      document.querySelector('#cart tbody').addEventListener('click', function(e) {
+        if (e.target.classList.contains('remove-item')) {
+          const idx = e.target.getAttribute('data-index');
+          let cart = JSON.parse(localStorage.getItem('eshopCart') || '[]');
+          cart.splice(idx, 1);
+          localStorage.setItem('eshopCart', JSON.stringify(cart));
+          renderCart();
+        }
+      });
+
+      // Update quantity
+      document.querySelector('#cart tbody').addEventListener('input', function(e) {
+        if (e.target.classList.contains('quantity-input')) {
+          const idx = e.target.getAttribute('data-index');
+          let cart = JSON.parse(localStorage.getItem('eshopCart') || '[]');
+          let newQty = parseInt(e.target.value, 10);
+          if (newQty < 1) newQty = 1;
+          cart[idx].quantity = newQty;
+          localStorage.setItem('eshopCart', JSON.stringify(cart));
+          renderCart();
+        }
+      });
+    });
+    </script>
+  </body>
+</html>
